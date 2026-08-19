@@ -693,6 +693,7 @@ button:disabled {
 
     left: 50%;
     top: -95px;
+    
 
     transform: translateX(-50%);
 
@@ -700,6 +701,23 @@ button:disabled {
     pointer-events: none;
 }
 
+.typing-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 18px;
+}
+
+#typingProgress {
+    width: 0%;
+    height: 100%;
+    background: #3da9fc;
+    border-radius: 20px;
+    transition: width 0.05s linear;
+    box-shadow: 0 0 10px rgba(61, 169, 252, 0.7);
+}
 #page1 #vids-fourth {
     position: absolute;
 

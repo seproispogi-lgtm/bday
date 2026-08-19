@@ -118,7 +118,6 @@ const kalimat = [
     "Happy birthday, Shantal! 🥳 Wishing you lots of happiness, good health, and more amazing memories. Enjoy your day!🎉💗 ------ [sef] as a friend"
 ];
 
-
 function ketikSurat(el, text, speed = 55) {
     let i = 0;
     el.innerHTML = "";
@@ -566,11 +565,14 @@ All the exhaustion, all the pain, all those difficult days you’ve been through
 
 It’s okay to rest, but giving up would be too small of a choice for everything you’ve fought through until now.
 
-Take it slowly. 🤍
+Take it slowly.
+
+Life isn’t a race about who gets there the fastest, but about who keeps walking even after falling down countless times. 🤍
 `;
 
     const el = document.getElementById("pesanMotivasi");
     const overlay = document.getElementById("pesanOverlay");
+    const progress = document.getElementById("typingProgress");
 
     // Tampilkan overlay dulu
     overlay.classList.add("show");
@@ -599,7 +601,11 @@ Take it slowly. 🤍
             if (charIndex < paragraph.length) {
                 p.textContent += paragraph.charAt(charIndex);
                 charIndex++;
-
+            
+            if (progress) {
+                const percent = (charIndex / paragraph.length) * 100;
+                progress.style.width = percent + "%";
+}
                 const char = paragraph.charAt(charIndex - 1);
 
                 // Kecepatan mengetik

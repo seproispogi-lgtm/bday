@@ -171,7 +171,7 @@
             </div>
         </div>
 
-
+            
         <div id="page4" class="page">
             <div id="formBox">
 
@@ -273,11 +273,11 @@
             </h1>
 
             <p style="
-    opacity:0.8;
-    font-size:0.95rem;
-    margin-bottom:25px;
-    line-height:1.6;
-">
+                opacity:0.8;
+                font-size:0.95rem;
+                margin-bottom:25px;
+                line-height:1.6;
+            ">
                 choose a song to keep you company<br>
                 while you open the letter next.
             </p>
@@ -291,6 +291,12 @@
 
                         <div class="album-slide" data-audio="about.mp3" data-start="84">
                             <div class="album-card">
+                                <div class="album-equalizer">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                                 <img src="Album1.jpg" class="album-cover">
                                 <div class="album-info">
                                     <h3>About You</h3>
@@ -301,6 +307,12 @@
 
                         <div class="album-slide" data-audio="dist.mp3" data-start="85.5">
                             <div class="album-card">
+                                <div class="album-equalizer">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                                 <img src="album2.jpg" class="album-cover">
                                 <div class="album-info">
                                     <h3>Distant Lover</h3>
@@ -311,6 +323,12 @@
 
                         <div class="album-slide" data-audio="vood.mp3" data-start=118.3>
                             <div class="album-card">
+                                <div class="album-equalizer">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                                 <img src="album3.jpg" class="album-cover">
                                 <div class="album-info">
                                     <h3>End</h3>
@@ -321,6 +339,12 @@
 
                         <div class="album-slide" data-audio="it.mp3" data-start="68">
                             <div class="album-card">
+                                <div class="album-equalizer">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                                 <img src="album4.jpg" class="album-cover">
                                 <div class="album-info">
                                     <h3>It Might Be You</h3>
@@ -331,6 +355,12 @@
 
                         <div class="album-slide" data-audio="foto.mp3" data-start="0">
                             <div class="album-card">
+                                <div class="album-equalizer">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                                 <img src="album5.jpg" class="album-cover">
                                 <div class="album-info">
                                     <h3>Foto Kita Blur</h3>
@@ -341,6 +371,12 @@
 
                         <div class="album-slide" data-audio="won.mp3" data-start="0">
                             <div class="album-card">
+                                <div class="album-equalizer">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                                 <img src="album6.jpg" class="album-cover">
                                 <div class="album-info">
                                     <h3>I Won't Last a Day Without You</h3>
@@ -351,6 +387,12 @@
 
                         <div class="album-slide" data-audio="maik.mp3" data-start="51.5">
                             <div class="album-card">
+                                <div class="album-equalizer">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
                                 <img src="album7.jpg" class="album-cover">
                                 <div class="album-info">
                                     <h3>Maikee's Letters(fav)</h3>
@@ -361,6 +403,7 @@
 
                         <div class="album-slide" data-audio="hanap.mp3" data-start="170.5">
                             <div class="album-card">
+                                
                                 <img src="album8.jpg" class="album-cover">
                                 <div class="album-info">
                                     <h3>Hinahanap-Hanap Kita</h3>
@@ -385,8 +428,10 @@
     </div>
     <div id="pesanOverlay" class="pesan-overlay">
         <div class="pesan-box">
+            <div class="typing-progress">
+            <div id="typingProgress"></div>
+            </div>
             <p id="pesanMotivasi"></p>
-
             <div class="pesan-actions">
                 <button onclick="kembaliUmur()">Back</button>
                 <button onclick="nextDariPesan()">Continue</button>
