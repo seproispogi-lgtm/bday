@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -7,398 +8,417 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
+
 <body>
     <div id="chrome-check">
-    <div class="chrome-content">
-        <h2>Ups! Biar Lebih Lancar ✨</h2>
-        <p>Buka pesan ini di <b>Chrome</b> atau <b>Browser HP</b> ya, biar animasinya nggak berantakan.</p>
-        
-        <div class="step">
-            Click the three dots ( ⋮ ) in the top-right corner <br>
-            then choose "Open in Browser / Chrome"
-        </div>
-        
-        <button onclick="document.getElementById('chrome-check').style.display='none'" 
+        <div class="chrome-content">
+            <h2>Ups! Biar Lebih Lancar ✨</h2>
+            <p>Buka pesan ini di <b>Chrome</b> atau <b>Browser HP</b> ya, biar animasinya nggak berantakan.</p>
+
+            <div class="step">
+                Click the three dots ( ⋮ ) in the top-right corner <br>
+                then choose "Open in Browser / Chrome"
+            </div>
+
+            <button onclick="document.getElementById('chrome-check').style.display='none'"
                 style="margin-top: 30px; background: none; border: none; color: #ff4d6d; text-decoration: underline;">
-            Stay here (Not recommended)
-        </button>
-    </div>
-</div>
-
-<div id="loadingScreen">
-    <div class="loading-content">
-        <div class="loading-cake">🎂</div>
-        <p>Preparing something for you...</p>
-        <p id="loadingDetail" style="font-size:0.75rem; opacity:0.7; margin-top:10px; min-height:1.2em;"></p>
-       <div class="loading-bar"><div class="loading-fill"></div></div>
-        
-    </div>
-</div>
-
-<div class="container">
-    
-    <!-- FIRST PAGE -->
-    
-    <div id="page1" class="page active">
-        <div id="formBox">
-            <video autoplay loop muted playsinline class="floating-gif" id="vids-utama">
-                <source src="kicaw.webm" type="video/webm">
-            </video>
-
-            <video autoplay loop muted playsinline class="floating-gif" id="vids-salah" style="opacity: 0;">
-                <source src="salah.webm" type="video/webm">
-            </video>
-
-            <h1>Hi, It's for you!</h1>
-            <p id="label">Please enter the password...</p>
-            <input type="password" id="password" placeholder="Type here...">
-            <p class="clue">Clue: your birthday</p>
-            <button onclick="cek()">Enter ✨</button>
+                Stay here (Not recommended)
+            </button>
         </div>
-        <button onclick="pindahHalaman(6)">Continue</button>
     </div>
 
-    <!-- SECOND PAGE -->
+    <div id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-cake">🎂</div>
+            <p>Preparing something for you...</p>
+            <p id="loadingDetail" style="font-size:0.75rem; opacity:0.7; margin-top:10px; min-height:1.2em;"></p>
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
 
-    <div id="page2" class="page">
-        <h1 style="font-size: 1.8rem; line-height: 1.4;">
-            Happy 18th <br> 
-            <span style="color: #ff4d6d; text-shadow: 2px 2px 10px rgba(255, 77, 109, 0.3);">
-                ✨️Happy Birthday, Shantal!✨️
-            </span>
-        </h1>
-
-        <div class="text-box" id="scrollBox">
-            <p id="text"></p>
         </div>
-        <button id="nextBtn" onclick="nextPage()" disabled>Please wait...</button>
     </div>
 
-<div id="page3" class="page">
-    <div id="overlay" class="dark-overlay" onclick="toggleSurat()"></div>
+    <div class="container">
 
-    <h1 id="judulSurat">A message for you...</h1>
-    <p id="hintKlik">(Click the envelope ✨)</p>
-    
-    <div class="envelope-wrapper" id="amplopWrapper" onclick="toggleSurat()">
-        <div class="envelope">
-            <div class="flap"></div>
-            <div class="body-left"></div>
-            <div class="body-right"></div>
-            
-            <div class="letter">
-                <div class="letter-content">
-                    <h3 style="color: #ff4d6d; margin-top: 0;">Dear, You ✨</h3>
-                    <p>Selamat ulang tahun yang ke-18 ya!</p>
-                    <p>Mungkin aku nggak bisa kasih kado mewah, tapi aku bikin ini khusus buat kamu.</p>
-                    <p>Makasih ya udah ada di hidup aku. Tetaplah bahagia!</p>
-                    <p>🌻🌻🌻
-                    </p>
+        <!-- FIRST PAGE -->
+
+        <div id="page1" class="page active">
+            <div id="formBox">
+                <video autoplay loop muted playsinline class="floating-gif" id="vids-utama">
+                    <source src="kicaw.webm" type="video/webm">
+                </video>
+
+                <video autoplay loop muted playsinline class="floating-gif" id="vids-salah" style="opacity: 0;">
+                    <source src="salah.webm" type="video/webm">
+                </video>
+
+                <h1>Hi, It's for you!</h1>
+                <p id="label">Please enter the password...</p>
+                <input type="password" id="password" placeholder="Type here...">
+                <p class="clue">Clue: your birthday</p>
+                <button onclick="cek()">Enter ✨</button>
+            </div>
+            <button onclick="pindahHalaman(6)">Continue</button>
+        </div>
+
+        <!-- SECOND PAGE -->
+
+        <div id="page2" class="page">
+            <h1 style="font-size: 1.8rem; line-height: 1.4;">
+                Happy 18th <br>
+                <span style="color: #060858; text-shadow: 2px 2px 10px rgba(255, 77, 109, 0.3);">
+                    ✨️Happy Birthday, Shantal!✨️
+                </span>
+            </h1>
+
+            <div class="text-box" id="scroll-box">
+                <p id="text"></p>
+            </div>
+            <button id="nextBtn" onclick="nextPage()" disabled>Please wait...</button>
+        </div>
+
+        <div id="page3" class="page">
+            <div id="overlay" class="dark-overlay" onclick="toggleSurat()"></div>
+
+            <h1 id="letter-title">A message for you, dear...</h1>
+            <p id="hintKlik">(Click the envelope ✨)</p>
+
+            <div class="envelope-wrapper" id="amplopWrapper" onclick="toggleSurat()">
+                <div class="envelope">
+                    <div class="flap"></div>
+                    <div class="body-left"></div>
+                    <div class="body-right"></div>
+
+                    <div class="letter">
+                        <div class="letter-content">
+                            <h3 style="color: #2214b4; margin-top: 0;">Dear, You ✨</h3>
+                            <p>Happy 18th birthday!!</p>
+                            <p>I can't gift you an expensive gift right noew, pero i've made this specially for you.</p>
+                            <p>Thanks for being in my life. Keep being happy!</p>
+                            <p>🌻🌻🌻
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="body-bottom"></div>
+                    <div class="seal">
+                        <img src="seal.png" alt="seal">
+                    </div>
+
                 </div>
             </div>
-            
-            <div class="body-bottom"></div>
-            <div class="seal">
-                <img src="seal.png" alt="seal">
+            <div id="realLetter" class="real-letter">
+                <div class="letter-pages">
+
+                    <div class="letter-page active" id="lp1">
+                        <h4>To Shantal Jeanna Guerrero</h4>
+                        <p>It has been such a long time since I last saw you.</p>
+                        <p>Before anything else, happy 18th birthday, dear.</p>
+                    </div>
+
+                    <div class="letter-page" id="lp2">
+                        <h4>Page 2</h4>
+                        <p>I don't even know exactly where to start, pero gusto ko lang sabihin na I miss you so much.
+                            Ang hirap minsan ng LDR kasi kahit gaano ko kagustong puntahan ka, yakapin ka,
+                            makasama ka, or simply spend an ordinary day with you,
+                            hindi ko basta-basta magawa (huhuhuhuhuh).
+
+                            Kaya gumawa nalang me ng simple website for u</p>
+                    </div>
+
+                    <div class="letter-page" id="lp3">
+                        <h4>Page 3</h4>
+                        <p>Maybe simple lang siya compared sa mga gifts na pwede kong ibigay, pero ginawa ko siya
+                            with so much time, effort, and love. Every little part of it was made while thinking about
+                            you. Habang ginagawa ko 'to, iniisip ko kung magugustuhan mo ba(tho mas pinaganda ko 'to
+                            kesa dun
+                            sa monthsary na website hehe(sana magustuhn mo i2)), kung mapapangiti ka ba,
+                            at kung mararamdaman mo ba kahit konti kung gaano kita kamahal(di ako marunong magexpress
+                            through words eh hahaha).
+                        </p>
+                    </div>
+
+                    <div class="letter-page" id="lp4">
+                        <h4>Page 4</h4>
+                        <p>I miss you so much, bebe. I miss talking to you, being with you, and all the little moments
+                            that we could have if we weren't so far from each other. Kahit malayo ako, I hope you still
+                            feel how much I love and care about you.</p>
+                    </div>
+
+                    <div class="letter-page" id="lp5">
+                        <h3>Page 5</h3>
+                        <p>And maybe this website isn't the only gift you'll get from me.
+                            Maybe there's another one waiting for you someday or mamaya? 😉</p>
+                    </div>
+                    <div class="letter-page" id="lp6">
+                        <h3>Page 6</h3>
+                        <p>Happy 18th birthday, Shantal. I love you so much,
+                            mwamwmawamwmamwamwmawma.</p>
+                    </div>
+                </div>
+
+                <div class="letter-nav" id="letterNav">
+                    <button id="btnPrev" onclick="gantiLembar(-1)" style="display:none;">← Back</button>
+                    <span id="pageIndicator">1 / 3</span>
+                    <button id="btnNextLetter" onclick="gantiLembar(1)" disabled>Next →</button>
+                </div>
             </div>
 
-        </div>
-    </div>
-    <div id="realLetter" class="real-letter">
-    <div class="letter-pages">
-
-        <div class="letter-page active" id="lp1">
-            <h4>To Cezillia</h4>
-            <p> Hayy. Wes suwi yo? hehehehe, yo ngunu sihh.</p>
-            <p>Sebelum e, Selamat ulang tahun seng ke 18 broo. Yaa maap lek semisal wes jarang komunikasi, jane lek tiap koe WA, aku emang sengaja ngerespon koe dengan cara seng gae kurang penak, mergo ben agak terbentuk jarak wae, lagian yo emang jatah wes waktune kan awak e berjarak koyo ngene ke? </p>
-        </div>
-
-        <div class="letter-page" id="lp2">
-            <h4>Halaman 2</h4>
-            <p>Tapi jujur aku ora pernah merasa pengen ngebenci koe kok, Justru malah merasa santai aku saiki. Yo wes jatah wayah e wae asline, lagian menurutku yo penak lek awak e ora terlalu sering komunikasi kan? Tapi ya maap hehehhe. Mungkin hari-hari setelah koe terakhir chatingan mbi aku kae, enek beberapa cerito seng wes ora sempet kok ceritakne yang aku. </p>
-        </div>
-
-        <div class="letter-page" id="lp3">
-            <h4>Halaman 3</h4>
-            <p>Orapopo lhoo, kan enek to konco"mu seng lebih iso ngerungokne ceritamu, mup on aja. Koyo aku iki lho, lagian menurutku mup on ke ora seangel kui kok, tergantung alemu nyikapi wae asline. Aku ora nyalahne sih, coro lek koe wes mup on, dadi awak e saiki podo" wes barr.</p>
-        </div>
-        
-        <div class="letter-page" id="lp4">
-            <h4>Halaman 4</h4><p>Tapi lek Semisal koe urung merasa barrr..... Perlu dipertanyakan sih kewarasanmu, wkwkwkwk. Ora oraa, Seng jelas koe ora bakal koyo ngunu kok(yakin sihh). Aku ke eling omonganmu seng iki "suwi-suwi bakal terbiasa kok", tibak e emang bener iso terbiasa. bahkan di detik aku gae web + nulis halaman iki aku yo gur tak bawa enjoy. Tapi aku sempet bingung sih </p>
+            <div style="width: 100%; display: flex; justify-content: center;">
+                <button id="continue-button" class="hidden-btn" onclick="goToPage(5)">Continue ✨</button>
             </div>
-            
-        <div class="letter-page" id="lp5">
-            <h3>Halaman 5</h3>
-            <p>Yo lumayan canggung barang lek semisal pas awak e papasan. Tapi mending ben ngunu wae, lagian lek tiba-tiba sok asik nek ngarepmu pora koyo sokab. Yoo mungkin semunu wae pesanku nggo koe, maaf gur iso ngenei buku mbi web iki(yo walaupun ora spesial" bangett ngene ale gae web ket tanggal 26 Aprill nonstop bro🙄). Oh iyoo, satu hall meneh. Jaga kesehatan, maemmu ojo gur fastfood terus, diimbangi mbi sayur sayuran barang.</p>
+        </div>
+
+
+        <div id="page4" class="page">
+            <div id="formBox">
+
+                <div id="umurHeader">
+                    <h1 style="font-size: 2.5rem;">See my age now
+                    </h1>
+                </div>
+
+                <div id="umurResult" class="umur-hidden" style="margin-top:20px; line-height:1.8; font-size:1.1rem;">
+                    Press the button first.
+                </div>
+
+                <button id="btnUmur" onclick="startUmur()" style="margin-top: 25px;">
+                    See Age ✨
+                </button>
+
+                <button id="btnNext" class="hidden-btn" onclick="lanjutPesan()">
+                    Continue ✨
+                </button>
             </div>
-            <div class="letter-page" id="lp6">
-            <h3>Halaman 6</h3>
-            <p> Mesakne awakmu kui, meh 1 tahun gur nambah 0,2cm. wkwkwkwkwk, mungkin maksudmu dienggo genep ben iso 151 to? becanda kok becanda hehehe. Mungkin iki last gift kat aku nggo koe, aku ora berharap koe rep mbales pemberianku, aku emang wes ikhlas kok. Tapi lek koe rep ngenei aku sesuatu yo ora bakal nolak sih, bakal tak terima wae. wiss ngunu wae, tetep semangat yaa(Semangat 45🔥)</p>
+        </div>
+
+
+        <div id="page5" class="page">
+            <h2>Choose your gift today!</h2>
+            <div class="pilihan-box">
+                <button onclick="kirimJawaban('Complete seblak')">Order Seblak 🍜</button>
+                <button onclick="kirimJawaban('Online hug')">Online Hug 🤗</button>
+                <button onclick="kirimJawaban('A day out')">A Day Out 🚗</button>
             </div>
-    </div>
+        </div>
 
-    <div class="letter-nav" id="letterNav">
-        <button id="btnPrev" onclick="gantiLembar(-1)" style="display:none;">← Back</button>
-        <span id="pageIndicator">1 / 3</span>
-        <button id="btnNextLetter" onclick="gantiLembar(1)" disabled>Next →</button>
-    </div>
-</div>
+        <!-- HALAMAN MAKE A WISH -->
+        <div id="page6" class="page">
+            <h1 style="margin-bottom: 4px;">Make a Wish</h1>
+            <p style="font-size: 1.0rem; color: rgba(255,255,255,0.8); margin-top: 0;">
+                Make a wish and tap all the candles
+            </p>
 
-    <div style="width: 100%; display: flex; justify-content: center;">
-    <button id="btnLanjut" class="hidden-btn" onclick="pindahHalaman(5)">Continue ✨</button>
-</div>
-</div>
+            <div class="kue-wrapper">
+                <!-- Lilin -->
+                <div class="lilin-row">
+                    <div class="lilin" id="lilin1" onclick="tiupLilin(1)">
+                        <div class="api" id="api1"></div>
+                        <div class="batang"></div>
+                    </div>
+                    <div class="lilin" id="lilin2" onclick="tiupLilin(2)">
+                        <div class="api" id="api2"></div>
+                        <div class="batang"></div>
+                    </div>
+                    <div class="lilin" id="lilin3" onclick="tiupLilin(3)">
+                        <div class="api" id="api3"></div>
+                        <div class="batang"></div>
+                    </div>
+                    <div class="lilin" id="lilin4" onclick="tiupLilin(4)">
+                        <div class="api" id="api4"></div>
+                        <div class="batang"></div>
+                    </div>
+                    <div class="lilin" id="lilin5" onclick="tiupLilin(5)">
+                        <div class="api" id="api5"></div>
+                        <div class="batang"></div>
+                    </div>
 
-<div id="page4" class="page">
-    <div id="formBox">
+                    <div class="lilin" id="lilin6" onclick="tiupLilin(6)">
+                        <div class="api" id="api6"></div>
+                        <div class="batang"></div>
+                    </div>
+                </div>
 
-        <div id="umurHeader">
-            <h1 style= "font-size: 2.5rem;">See my age now
+                <!-- KUE -->
+                <div class="kue">
+                    <div class="kue-top-cap"></div>
+                    <div class="kue-layer kue-atas"></div>
+                    <div class="frosting-mid-atas"></div>
+                    <div class="kue-layer kue-bawah"></div>
+                    <div class="frosting-mid-bawah"></div>
+                    <div class="kue-bottom-cap"></div>
+                    <div class="kue-plate"></div>
+                </div>
+            </div>
+            <p id="wishHint" style="font-size:1.0rem; margin-top:14px; font-style:italic;">
+            </p>
+
+            <div id="wishMsg">
+                <div class="wish-box">
+
+                    <p>🎂 May all your hopes and prayers come true.</p>
+                    <p>~Amen~</p>
+                    <button id="btnWishLanjut" class="show-btn" onclick="lanjutKePlaylist()">
+                        Continue ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="page7" class="page">
+            <h1 style="margin-bottom:10px;">
+                Choose a Song 🎧
             </h1>
-        </div>
 
-        <div id="umurResult" class="umur-hidden" style="margin-top:20px; line-height:1.8; font-size:1.1rem;">
-            Press the button first.
-        </div>
-
-        <button id="btnUmur" onclick="startUmur()" style="margin-top: 25px;">
-            See Age ✨
-        </button>
-
-        <button id="btnNext" class="hidden-btn" onclick="lanjutPesan()">
-            Continue ✨
-        </button>
-    </div>
-</div>
-
-
-    <div id="page5" class="page">
-        <h2>Choose your gift today!</h2>
-        <div class="pilihan-box">
-            <button onclick="kirimJawaban('Complete seblak')">Order Seblak 🍜</button>
-            <button onclick="kirimJawaban('Online hug')">Online Hug 🤗</button>
-            <button onclick="kirimJawaban('A day out')">A Day Out 🚗</button>
-        </div>
-    </div>
-    
-    <!-- HALAMAN MAKE A WISH -->
-<div id="page6" class="page">
-    <h1 style="margin-bottom: 4px;">Make a Wish</h1>
-    <p style="font-size: 1.0rem; color: rgba(255,255,255,0.8); margin-top: 0;">
-        Make a wish and tap all the candles
-    </p>
-
-    <div class="kue-wrapper">
-        <!-- Lilin -->
-        <div class="lilin-row">
-            <div class="lilin" id="lilin1" onclick="tiupLilin(1)">
-                <div class="api" id="api1"></div>
-                <div class="batang"></div>
-            </div>
-            <div class="lilin" id="lilin2" onclick="tiupLilin(2)">
-                <div class="api" id="api2"></div>
-                <div class="batang"></div>
-            </div>
-            <div class="lilin" id="lilin3" onclick="tiupLilin(3)">
-                <div class="api" id="api3"></div>
-                <div class="batang"></div>
-            </div>
-            <div class="lilin" id="lilin4" onclick="tiupLilin(4)">
-                <div class="api" id="api4"></div>
-                <div class="batang"></div>
-            </div>
-            <div class="lilin" id="lilin5" onclick="tiupLilin(5)">
-                <div class="api" id="api5"></div>
-                <div class="batang"></div>
-            </div>
-            
-            <div class="lilin" id="lilin6" onclick="tiupLilin(6)">
-                <div class="api" id="api6"></div>
-                <div class="batang"></div>
-            </div>
-        </div>
-
-        <!-- KUE -->
-        <div class="kue">
-    <div class="kue-top-cap"></div>
-    <div class="kue-layer kue-atas"></div>
-    <div class="frosting-mid-atas"></div>
-    <div class="kue-layer kue-bawah"></div>
-    <div class="frosting-mid-bawah"></div>
-    <div class="kue-bottom-cap"></div>
-    <div class="kue-plate"></div>
-</div>
-    </div>
-    <p id="wishHint" style="font-size:1.0rem; margin-top:14px; font-style:italic;">
-    </p>
-
-    <div id="wishMsg">
-    <div class="wish-box">
-
-        <p>🎂 May all your hopes and prayers come true.</p>
-        <p>~Amen~</p>
-        <button 
-            id="btnWishLanjut"
-            class="show-btn"
-            onclick="lanjutKePlaylist()">
-            Continue ✨
-        </button>
-        </div>
-    </div>
-</div>
-
-<div id="page7" class="page">
-    <h1 style="margin-bottom:10px;">
-    Choose a Song 🎧
-</h1>
-
-    <p style="
+            <p style="
     opacity:0.8;
     font-size:0.95rem;
     margin-bottom:25px;
     line-height:1.6;
 ">
-    choose a song to keep you company<br>
-    while you open the letter next.
-</p>
+                choose a song to keep you company<br>
+                while you open the letter next.
+            </p>
 
-    <div class="album-slider">
+            <div class="album-slider">
 
-        <button class="nav-btn left" onclick="prevAlbum()">❮</button>
+                <button class="nav-btn left" onclick="prevAlbum()">❮</button>
 
-        <div class="album-wrapper">
-            <div class="album-track">
+                <div class="album-wrapper">
+                    <div class="album-track">
 
-                <div class="album-slide" data-audio="about.mp3" data-start="84">
-                    <div class="album-card">
-                        <img src="Album1.jpg" class="album-cover">
-                        <div class="album-info">
-                            <h3>About You</h3>
-                            <p>The 1975</p>
+                        <div class="album-slide" data-audio="about.mp3" data-start="84">
+                            <div class="album-card">
+                                <img src="Album1.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>About You</h3>
+                                    <p>The 1975</p>
+                                </div>
+                            </div>
                         </div>
+
+                        <div class="album-slide" data-audio="dist.mp3" data-start="85.5">
+                            <div class="album-card">
+                                <img src="album2.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Distant Lover</h3>
+                                    <p>Marvin Gaye</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="vood.mp3" data-start=118.3>
+                            <div class="album-card">
+                                <img src="album3.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>End</h3>
+                                    <p>Frank Ocean</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="it.mp3" data-start="68">
+                            <div class="album-card">
+                                <img src="album4.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>It Might Be You</h3>
+                                    <p>Steven Bishop</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="foto.mp3" data-start="0">
+                            <div class="album-card">
+                                <img src="album5.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Foto Kita Blur</h3>
+                                    <p>Sal Priadi</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="won.mp3" data-start="0">
+                            <div class="album-card">
+                                <img src="album6.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>I Won't Last a Day Without You</h3>
+                                    <p>Carpenters</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="maik.mp3" data-start="51.5">
+                            <div class="album-card">
+                                <img src="album7.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Maikee's Letters(fav)</h3>
+                                    <p>Just Hush</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="hanap.mp3" data-start="170.5">
+                            <div class="album-card">
+                                <img src="album8.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Hinahanap-Hanap Kita</h3>
+                                    <p>Rivermaya</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <div class="album-slide" data-audio="dist.mp3" data-start="85.5">
-                    <div class="album-card">
-                        <img src="album2.jpg" class="album-cover">
-                        <div class="album-info">
-                            <h3>Distant Lover</h3>
-                            <p>Marvin Gaye</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="album-slide" data-audio="vood.mp3" data-start=118.3>
-                    <div class="album-card">
-                        <img src="album3.jpg" class="album-cover">
-                        <div class="album-info">
-                            <h3>End</h3>
-                            <p>Frank Ocean</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="album-slide" data-audio="it.mp3" data-start="68">
-                    <div class="album-card">
-                        <img src="album4.jpg" class="album-cover">
-                        <div class="album-info">
-                            <h3>It Might Be You</h3>
-                            <p>Steven Bishop</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="album-slide" data-audio="foto.mp3" data-start="0">
-                    <div class="album-card">
-                        <img src="album5.jpg" class="album-cover">
-                        <div class="album-info">
-                            <h3>Foto Kita Blur</h3>
-                            <p>Sal Priadi</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="album-slide" data-audio="won.mp3" data-start="0">
-                    <div class="album-card">
-                        <img src="album6.jpg" class="album-cover">
-                        <div class="album-info">
-                            <h3>I Won't Last a Day Without You</h3>
-                            <p>Carpenters</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="album-slide" data-audio="maik.mp3" data-start="51.5">
-                    <div class="album-card">
-                        <img src="album7.jpg" class="album-cover">
-                        <div class="album-info">
-                            <h3>Maikee's Letters(fav)</h3>
-                            <p>Just Hush</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="album-slide" data-audio="hanap.mp3" data-start="170.5">
-                    <div class="album-card">
-                        <img src="album8.jpg" class="album-cover">
-                        <div class="album-info">
-                            <h3>Hinahanap-Hanap Kita</h3>
-                            <p>Rivermaya</p>
-                        </div>
-                    </div>
-                </div>
+                <button class="nav-btn right" onclick="nextAlbum()">❯</button>
 
             </div>
+
+            <button onclick="pindahHalaman(4)" style="margin-top:25px;">
+                Continue ✨
+            </button>
         </div>
 
-        <button class="nav-btn right" onclick="nextAlbum()">❯</button>
 
     </div>
+    <div id="pesanOverlay" class="pesan-overlay">
+        <div class="pesan-box">
+            <p id="pesanMotivasi"></p>
 
-    <button onclick="pindahHalaman(4)" style="margin-top:25px;">
-        Continue ✨
-    </button>
-</div>
-
-
-</div>
-<div id="pesanOverlay" class="pesan-overlay">
-    <div class="pesan-box">
-        <p id="pesanMotivasi"></p>
-
-        <div class="pesan-actions">
-            <button onclick="kembaliUmur()">Back</button>
-            <button onclick="nextDariPesan()">Continue</button>
+            <div class="pesan-actions">
+                <button onclick="kembaliUmur()">Back</button>
+                <button onclick="nextDariPesan()">Continue</button>
+            </div>
         </div>
     </div>
-</div>
-<audio id="myLagu">
-    <source src="birthday.mp3" type="audio/mpeg">
-</audio>
-<audio id="audioSalah">
-    <source src="salah.mp3" type="audio/mpeg">
-</audio>
-<audio id="laguWish">
-    <source src="wish.mp3" type="audio/mpeg">
-</audio>
-<audio id="previewAudio"></audio>
-<audio id="fullAudio"></audio>
-<script>
-const ua = navigator.userAgent;
+    <audio id="myLagu">
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="audioSalah">
+        <source src="salah.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="laguWish">
+        <source src="wish.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="previewAudio"></audio>
+    <audio id="fullAudio"></audio>
+    <script>
+        const ua = navigator.userAgent;
 
-const isInApp =
-  ua.includes("Instagram") ||
-  ua.includes("FBAN") ||
-  ua.includes("FBAV") ||
-  ua.includes("Line") ||
-  ua.includes("TikTok") ||
-  ua.includes("wv");
+        const isInApp =
+            ua.includes("Instagram") ||
+            ua.includes("FBAN") ||
+            ua.includes("FBAV") ||
+            ua.includes("Line") ||
+            ua.includes("TikTok") ||
+            ua.includes("wv");
 
-if (!isInApp) {
-  document.getElementById("chrome-check").style.display = "none";
-}
-</script>
-<script src="script.js"></script>
+        if (!isInApp) {
+            document.getElementById("chrome-check").style.display = "none";
+        }
+    </script>
+    <script src="script.js"></script>
 </body>
+
 </html>

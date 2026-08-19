@@ -1,4 +1,4 @@
-(function() {
+(function () {
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     const isInstagram = ua.indexOf('Instagram') > -1;
     const isFacebook = (ua.indexOf('FBAN') > -1) || (ua.indexOf('FBAV') > -1);
@@ -13,7 +13,7 @@
     }
 })();
 
-window.onload = function() {
+window.onload = function () {
     // 1. Cek browser
     const ua = navigator.userAgent || navigator.vendor || window.opera;
     const isInstagram = ua.indexOf('Instagram') > -1;
@@ -51,8 +51,8 @@ window.onload = function() {
         if (detail) {
             const namaFile = src.split('/').pop();
             const ext = src.split('.').pop().toLowerCase();
-            const ikon = ["mp3","wav","ogg"].includes(ext) ? "🎵" :
-                         ["webm","mp4"].includes(ext) ? "🎬" : "🖼️";
+            const ikon = ["mp3", "wav", "ogg"].includes(ext) ? "🎵" :
+                ["webm", "mp4"].includes(ext) ? "🎬" : "🖼️";
             detail.innerText = `${ikon} ${namaFile}`;
         }
 
@@ -75,13 +75,13 @@ window.onload = function() {
     assets.forEach(src => {
         const ext = src.split('.').pop().toLowerCase();
 
-        if (["jpg","jpeg","png","webp","gif"].includes(ext)) {
+        if (["jpg", "jpeg", "png", "webp", "gif"].includes(ext)) {
             const img = new Image();
             img.onload = () => onProgress(src);
             img.onerror = () => onProgress(src);
             img.src = src;
 
-        } else if (["mp3","wav","ogg"].includes(ext)) {
+        } else if (["mp3", "wav", "ogg"].includes(ext)) {
             const audio = new Audio();
             let triggered = false;
             function triggerOnce() {
@@ -93,7 +93,7 @@ window.onload = function() {
             audio.src = src;
             audio.load();
 
-        } else if (["webm","mp4"].includes(ext)) {
+        } else if (["webm", "mp4"].includes(ext)) {
             const video = document.createElement("video");
             let triggered = false;
             function triggerOnce() {
@@ -112,10 +112,10 @@ window.onload = function() {
 };
 
 
-const sandiList = ["fanezha","nezha","fanesa","fanes","nejul","nesha","nesa"];
+const sandiList = ["fanezha", "nezha", "fanesa", "fanes", "nejul", "nesha", "nesa"];
 const lagu = document.getElementById("myLagu");
 const kalimat = [
-`selamat ulang tahun ya!
+    `selamat ulang tahun ya!
 
  sorry aku urung iso ngucapne langsung yang koe. mugo wae dengan umurmu seng saiki, koe iso makin lebih dewasa mbi lebih berkembang meneh. yo mungkin iki udu tahun seng apik dienggo koe, tapi aku yakin tahun iki koe iso memetik pelajaran seng berharga dienggo hidupmu. eling-eling wae jal, "pelangi tidak akan pernah muncul sebelum hujan turun", dadi yaa nikmati wae perjalananmu, suatu saat bakal e cerah mbi seindah koyo pelangi kok.`
 ];
@@ -346,7 +346,7 @@ function pindahHalaman(nomor) {
         mainPlayer.src = selectedSong;
         mainPlayer.onloadedmetadata = () => {
             mainPlayer.currentTime = 0;
-            mainPlayer.play().catch(() => {});
+            mainPlayer.play().catch(() => { });
         };
     }
 }
@@ -501,7 +501,7 @@ function gantiLembar(arah) {
     const halamanBaru = document.getElementById("lp" + currentLembar);
 
     const keluarAnim = arah === 1 ? "slide-out-left" : "slide-out-right";
-    const masukAnim  = arah === 1 ? "slide-in-right" : "slide-in-left";
+    const masukAnim = arah === 1 ? "slide-in-right" : "slide-in-left";
 
     halamanLama.classList.add(keluarAnim);
 
@@ -520,7 +520,7 @@ function gantiLembar(arah) {
 
 // ================== UMUR ==================
 
-const birthDate = new Date("2008-05-15T12:00:00");
+const birthDate = new Date("2008-08-20T12:00:00");
 
 let intervalUmur;
 
@@ -590,9 +590,9 @@ function updateUmur() {
     const totalMs = diff;
     const totalSeconds = Math.floor(diff / 1000);
     const totalMinutes = Math.floor(diff / (1000 * 60));
-    const totalHours   = Math.floor(diff / (1000 * 60 * 60));
-    const totalDays    = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const totalWeeks   = Math.floor(totalDays / 7);
+    const totalHours = Math.floor(diff / (1000 * 60 * 60));
+    const totalDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const totalWeeks = Math.floor(totalDays / 7);
 
     let tempDate = new Date(birthDate);
     let totalMonths = 0;
@@ -784,7 +784,7 @@ function updateAlbum() {
         previewAudio.src = laguFile;
         previewAudio.onloadedmetadata = () => {
             previewAudio.currentTime = startTime;
-            previewAudio.play().catch(() => {});
+            previewAudio.play().catch(() => { });
         };
         previewAudio.volume = 1;
         stopPreview = setTimeout(() => {
