@@ -699,6 +699,22 @@ button:disabled {
     z-index: 2;
     pointer-events: none;
 }
+
+#page1 #vids-fourth {
+    position: absolute;
+
+    width: 105px;
+    height: 105px;
+
+    object-fit: contain;
+
+    left: 15%;
+
+    transform: translateX(-75%);
+
+    z-index: 2;
+    pointer-events: none;
+}
 #page1 > button {
     opacity: 0;
     position: fixed;

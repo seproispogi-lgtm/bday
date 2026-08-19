@@ -118,6 +118,7 @@ const kalimat = [
     "Happy birthday, Shantal! 🥳 Wishing you lots of happiness, good health, and more amazing memories. Enjoy your day!🎉💗 ------ [sef] as a friend"
 ];
 
+
 function ketikSurat(el, text, speed = 55) {
     let i = 0;
     el.innerHTML = "";
@@ -565,9 +566,7 @@ All the exhaustion, all the pain, all those difficult days you’ve been through
 
 It’s okay to rest, but giving up would be too small of a choice for everything you’ve fought through until now.
 
-Take it slowly.
-
-Life isn’t a race about who gets there the fastest, but about who keeps walking even after falling down countless times. 🤍
+Take it slowly. 🤍
 `;
 
     const el = document.getElementById("pesanMotivasi");
