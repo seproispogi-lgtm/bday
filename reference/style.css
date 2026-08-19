@@ -1935,3 +1935,21 @@ button:hover,
 }
 
 
+#vids-third,
+#vids-fourth {
+    background: transparent !important;
+    background-color: transparent !important;
+    mix-blend-mode: normal !important;
+    filter: none !important;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    #vids-third,
+    #vids-fourth {
+        background: transparent !important;
+        background-color: transparent !important;
+        opacity: 1 !important;
+        mix-blend-mode: normal !important;
+    }
+}
