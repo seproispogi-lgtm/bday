@@ -2,13 +2,12 @@ window.onload = function () {
     // Loading asset
     const assets = [
         "kicaw.webm", "salah.webm",
-        "mp3/birthday.mp3", "mp3/salah.mp3", "mp3/wish.mp3",
-        "mp3/about.mp3", "mp3/nadhif.mp3", "mp3/nuca.mp3",
-        "mp3/fixyou.mp3", "mp3/blue.mp3", "mp3/hindia.mp3",
-        "mp3/lesungpipi.mp3", "mp3/neira.mp3",
-        "img/album1.jpg", "img/album2.jpg", "img/album3.jpg",
-        "img/album4.jpg", "img/album5.jpg", "img/album6.jpg",
-        "img/album7.jpg", "img/album8.jpg", "seal.png"
+        "birthday.mp3", "salah.mp3", "wish.mp3",
+        "about.mp3", "dist.mp3", "vood.mp3", "it.mp3",
+        "foto.mp3", "won.mp3", "maik.mp3", "hanap.mp3",
+        "Album1.jpg", "album2.jpg", "album3.jpg", "album4.jpg",
+        "album5.jpg", "album6.jpg", "album7.jpg", "album8.jpg",
+        "seal.png"
     ];
 
     let loaded = 0;
