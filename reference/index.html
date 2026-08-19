@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For You</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div id="chrome-check">
+    <div class="chrome-content">
+        <h2>Ups! Biar Lebih Lancar ✨</h2>
+        <p>Buka pesan ini di <b>Chrome</b> atau <b>Browser HP</b> ya, biar animasinya nggak berantakan.</p>
+        
+        <div class="step">
+            Klik titik tiga ( ⋮ ) di pojok kanan atas <br> 
+            lalu pilih "Buka di Browser / Chrome"
+        </div>
+        
+        <button onclick="document.getElementById('chrome-check').style.display='none'" 
+                style="margin-top: 30px; background: none; border: none; color: #ff4d6d; text-decoration: underline;">
+            Tetap di sini (Nggak direkomendasikan)
+        </button>
+    </div>
+</div>
+
+<div id="loadingScreen">
+    <div class="loading-content">
+        <div class="loading-cake">🎂</div>
+        <p>Menyiapkan sesuatu buat kamu...</p>
+        <p id="loadingDetail" style="font-size:0.75rem; opacity:0.7; margin-top:10px; min-height:1.2em;"></p>
+       <div class="loading-bar"><div class="loading-fill"></div></div>
+        
+    </div>
+</div>
+
+<div class="container">
+    
+    <!-- HALAMAN PERTAMA -->
+    
+    <div id="page1" class="page active">
+        <div id="formBox">
+            <video autoplay loop muted playsinline class="floating-gif" id="vids-utama">
+                <source src="kicaw.webm" type="video/webm">
+            </video>
+
+            <video autoplay loop muted playsinline class="floating-gif" id="vids-salah" style="opacity: 0;">
+                <source src="salah.webm" type="video/webm">
+            </video>
+
+            <h1>Hi, It's for you!</h1>
+            <p id="label">Masukin sandi dulu ya...</p>
+            <input type="password" id="password" placeholder="Ketik di sini...">
+            <p class="clue">Clue: Nama teman sekelasmu yang ikut PMR</p>
+            <button onclick="cek()">Masuk ✨</button>
+        </div>
+        <button onclick="pindahHalaman(6)">Lanjut Lagi</button>
+    </div>
+
+    <!-- HALAMAN KEDUA-->
+
+    <div id="page2" class="page">
+        <h1 style="font-size: 1.8rem; line-height: 1.4;">
+            Happy 18th <br> 
+            <span style="color: #ff4d6d; text-shadow: 2px 2px 10px rgba(255, 77, 109, 0.3);">
+                ✨️Birthday, Cezillia!✨️
+            </span>
+        </h1>
+
+        <div class="text-box" id="scrollBox">
+            <p id="text"></p>
+        </div>
+        <button id="nextBtn" onclick="nextPage()" disabled>Tunggu sebentar...</button>
+    </div>
+
+<div id="page3" class="page">
+    <div id="overlay" class="dark-overlay" onclick="toggleSurat()"></div>
+
+    <h1 id="judulSurat">Ada pesan buat kamu...</h1>
+    <p id="hintKlik">(Klik amplopnya ya ✨)</p>
+    
+    <div class="envelope-wrapper" id="amplopWrapper" onclick="toggleSurat()">
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="body-left"></div>
+            <div class="body-right"></div>
+            
+            <div class="letter">
+                <div class="letter-content">
+                    <h3 style="color: #ff4d6d; margin-top: 0;">Dear, You ✨</h3>
+                    <p>Selamat ulang tahun yang ke-18 ya!</p>
+                    <p>Mungkin aku nggak bisa kasih kado mewah, tapi aku bikin ini khusus buat kamu.</p>
+                    <p>Makasih ya udah ada di hidup aku. Tetaplah bahagia!</p>
+                    <p>🌻🌻🌻
+                    </p>
+                </div>
+            </div>
+            
+            <div class="body-bottom"></div>
+            <div class="seal">
+                <img src="seal.png" alt="seal">
+            </div>
+
+        </div>
+    </div>
+    <div id="realLetter" class="real-letter">
+    <div class="letter-pages">
+
+        <div class="letter-page active" id="lp1">
+            <h4>To Cezillia</h4>
+            <p> Hayy. Wes suwi yo? hehehehe, yo ngunu sihh.</p>
+            <p>Sebelum e, Selamat ulang tahun seng ke 18 broo. Yaa maap lek semisal wes jarang komunikasi, jane lek tiap koe WA, aku emang sengaja ngerespon koe dengan cara seng gae kurang penak, mergo ben agak terbentuk jarak wae, lagian yo emang jatah wes waktune kan awak e berjarak koyo ngene ke? </p>
+        </div>
+
+        <div class="letter-page" id="lp2">
+            <h4>Halaman 2</h4>
+            <p>Tapi jujur aku ora pernah merasa pengen ngebenci koe kok, Justru malah merasa santai aku saiki. Yo wes jatah wayah e wae asline, lagian menurutku yo penak lek awak e ora terlalu sering komunikasi kan? Tapi ya maap hehehhe. Mungkin hari-hari setelah koe terakhir chatingan mbi aku kae, enek beberapa cerito seng wes ora sempet kok ceritakne yang aku. </p>
+        </div>
+
+        <div class="letter-page" id="lp3">
+            <h4>Halaman 3</h4>
+            <p>Orapopo lhoo, kan enek to konco"mu seng lebih iso ngerungokne ceritamu, mup on aja. Koyo aku iki lho, lagian menurutku mup on ke ora seangel kui kok, tergantung alemu nyikapi wae asline. Aku ora nyalahne sih, coro lek koe wes mup on, dadi awak e saiki podo" wes barr.</p>
+        </div>
+        
+        <div class="letter-page" id="lp4">
+            <h4>Halaman 4</h4><p>Tapi lek Semisal koe urung merasa barrr..... Perlu dipertanyakan sih kewarasanmu, wkwkwkwk. Ora oraa, Seng jelas koe ora bakal koyo ngunu kok(yakin sihh). Aku ke eling omonganmu seng iki "suwi-suwi bakal terbiasa kok", tibak e emang bener iso terbiasa. bahkan di detik aku gae web + nulis halaman iki aku yo gur tak bawa enjoy. Tapi aku sempet bingung sih </p>
+            </div>
+            
+        <div class="letter-page" id="lp5">
+            <h3>Halaman 5</h3>
+            <p>Yo lumayan canggung barang lek semisal pas awak e papasan. Tapi mending ben ngunu wae, lagian lek tiba-tiba sok asik nek ngarepmu pora koyo sokab. Yoo mungkin semunu wae pesanku nggo koe, maaf gur iso ngenei buku mbi web iki(yo walaupun ora spesial" bangett ngene ale gae web ket tanggal 26 Aprill nonstop bro🙄). Oh iyoo, satu hall meneh. Jaga kesehatan, maemmu ojo gur fastfood terus, diimbangi mbi sayur sayuran barang.</p>
+            </div>
+            <div class="letter-page" id="lp6">
+            <h3>Halaman 6</h3>
+            <p> Mesakne awakmu kui, meh 1 tahun gur nambah 0,2cm. wkwkwkwkwk, mungkin maksudmu dienggo genep ben iso 151 to? becanda kok becanda hehehe. Mungkin iki last gift kat aku nggo koe, aku ora berharap koe rep mbales pemberianku, aku emang wes ikhlas kok. Tapi lek koe rep ngenei aku sesuatu yo ora bakal nolak sih, bakal tak terima wae. wiss ngunu wae, tetep semangat yaa(Semangat 45🔥)</p>
+            </div>
+    </div>
+
+    <div class="letter-nav" id="letterNav">
+        <button id="btnPrev" onclick="gantiLembar(-1)" style="display:none;">← Kembali</button>
+        <span id="pageIndicator">1 / 3</span>
+        <button id="btnNextLetter" onclick="gantiLembar(1)" disabled>Lanjut →</button>
+    </div>
+</div>
+
+    <div style="width: 100%; display: flex; justify-content: center;">
+    <button id="btnLanjut" class="hidden-btn" onclick="pindahHalaman(5)">Lanjut ✨</button>
+</div>
+</div>
+
+<div id="page4" class="page">
+    <div id="formBox">
+
+        <div id="umurHeader">
+            <h1 style= "font-size: 2.5rem;">Lihat usiaku sekarang
+            </h1>
+        </div>
+
+        <div id="umurResult" class="umur-hidden" style="margin-top:20px; line-height:1.8; font-size:1.1rem;">
+            Tekan tombol dulu.
+        </div>
+
+        <button id="btnUmur" onclick="startUmur()" style="margin-top: 25px;">
+            Lihat Umur ✨
+        </button>
+
+        <button id="btnNext" class="hidden-btn" onclick="lanjutPesan()">
+            Lanjut ✨
+        </button>
+    </div>
+</div>
+
+
+    <div id="page5" class="page">
+        <h2>Pilih hadiah kamu hari ini!</h2>
+        <div class="pilihan-box">
+            <button onclick="kirimJawaban('Seblak Komplit')">Pesen Seblak 🍜</button>
+            <button onclick="kirimJawaban('Peluk Online')">Peluk Online 🤗</button>
+            <button onclick="kirimJawaban('Jalan-jalan')">Diajak Jalan-jalan 🚗</button>
+        </div>
+    </div>
+    
+    <!-- HALAMAN MAKE A WISH -->
+<div id="page6" class="page">
+    <h1 style="margin-bottom: 4px;">Make a Wish</h1>
+    <p style="font-size: 1.0rem; color: rgba(255,255,255,0.8); margin-top: 0;">
+        Buat impian dan tap semua lilinnyaa
+    </p>
+
+    <div class="kue-wrapper">
+        <!-- Lilin -->
+        <div class="lilin-row">
+            <div class="lilin" id="lilin1" onclick="tiupLilin(1)">
+                <div class="api" id="api1"></div>
+                <div class="batang"></div>
+            </div>
+            <div class="lilin" id="lilin2" onclick="tiupLilin(2)">
+                <div class="api" id="api2"></div>
+                <div class="batang"></div>
+            </div>
+            <div class="lilin" id="lilin3" onclick="tiupLilin(3)">
+                <div class="api" id="api3"></div>
+                <div class="batang"></div>
+            </div>
+            <div class="lilin" id="lilin4" onclick="tiupLilin(4)">
+                <div class="api" id="api4"></div>
+                <div class="batang"></div>
+            </div>
+            <div class="lilin" id="lilin5" onclick="tiupLilin(5)">
+                <div class="api" id="api5"></div>
+                <div class="batang"></div>
+            </div>
+            
+            <div class="lilin" id="lilin6" onclick="tiupLilin(6)">
+                <div class="api" id="api6"></div>
+                <div class="batang"></div>
+            </div>
+        </div>
+
+        <!-- KUE -->
+        <div class="kue">
+    <div class="kue-top-cap"></div>
+    <div class="kue-layer kue-atas"></div>
+    <div class="frosting-mid-atas"></div>
+    <div class="kue-layer kue-bawah"></div>
+    <div class="frosting-mid-bawah"></div>
+    <div class="kue-bottom-cap"></div>
+    <div class="kue-plate"></div>
+</div>
+    </div>
+    <p id="wishHint" style="font-size:1.0rem; margin-top:14px; font-style:italic;">
+    </p>
+
+    <div id="wishMsg">
+    <div class="wish-box">
+
+        <p>🎂 Semoga semua harap dan semua doa-doa kamu dapat terkabul</p>
+        <p>~Aamiin~</p>
+        <button 
+            id="btnWishLanjut"
+            class="show-btn"
+            onclick="lanjutKePlaylist()">
+            Lanjut ✨
+        </button>
+        </div>
+    </div>
+</div>
+
+<div id="page7" class="page">
+    <h1 style="margin-bottom:10px;">
+    Pilih Lagu Dulu 🎧
+</h1>
+
+    <p style="
+    opacity:0.8;
+    font-size:0.95rem;
+    margin-bottom:25px;
+    line-height:1.6;
+">
+    pilih lagu yang mau nemenin kamu<br>
+    buat buka surat setelah ini.
+</p>
+
+    <div class="album-slider">
+
+        <button class="nav-btn left" onclick="prevAlbum()">❮</button>
+
+        <div class="album-wrapper">
+            <div class="album-track">
+
+                <div class="album-slide" data-audio="about.mp3" data-start="84">
+                    <div class="album-card">
+                        <img src="Album1.jpg" class="album-cover">
+                        <div class="album-info">
+                            <h3>About You</h3>
+                            <p>The 1975</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="album-slide" data-audio="nadhif.mp3" data-start="85.5">
+                    <div class="album-card">
+                        <img src="album2.jpg" class="album-cover">
+                        <div class="album-info">
+                            <h3>Kota ini tak sama tanpamu</h3>
+                            <p>Nadhif Basalamah</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="album-slide" data-audio="nuca.mp3" data-start=118.3> 
+                    <div class="album-card">
+                        <img src="album3.jpg" class="album-cover">
+                        <div class="album-info">
+                            <h3>Masa ini, Nanti, dan Masa Indah Lainnya</h3>
+                            <p>Nuca</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="album-slide" data-audio="fixyou.mp3" data-start="68">
+                    <div class="album-card">
+                        <img src="album4.jpg" class="album-cover">
+                        <div class="album-info">
+                            <h3>Fix You</h3>
+                            <p>Coldplay</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="album-slide" data-audio="blue.mp3" data-start="0">
+                    <div class="album-card">
+                        <img src="album5.jpg" class="album-cover">
+                        <div class="album-info">
+                            <h3>Blue</h3>
+                            <p>Yung Kai</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="album-slide" data-audio="hindia.mp3" data-start="0">
+                    <div class="album-card">
+                        <img src="album6.jpg" class="album-cover">
+                        <div class="album-info">
+                            <h3>Rumah ke Rumah</h3>
+                            <p>Hindia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="album-slide" data-audio="lesungpipi.mp3" data-start="51.5">
+                    <div class="album-card">
+                        <img src="album7.jpg" class="album-cover">
+                        <div class="album-info">
+                            <h3>Lesung Pipi</h3>
+                            <p>Raim Laode</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="album-slide" data-audio="neira.mp3" data-start="170.5">
+                    <div class="album-card">
+                        <img src="album8.jpg" class="album-cover">
+                        <div class="album-info">
+                            <h3>Sampai Jadi Debu</h3>
+                            <p>Banda Neira</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <button class="nav-btn right" onclick="nextAlbum()">❯</button>
+
+    </div>
+
+    <button onclick="pindahHalaman(4)" style="margin-top:25px;">
+        Lanjut ✨
+    </button>
+</div>
+
+
+</div>
+<div id="pesanOverlay" class="pesan-overlay">
+    <div class="pesan-box">
+        <p id="pesanMotivasi"></p>
+
+        <div class="pesan-actions">
+            <button onclick="kembaliUmur()">Kembali</button>
+            <button onclick="nextDariPesan()">Lanjut</button>
+        </div>
+    </div>
+</div>
+<audio id="myLagu">
+    <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+<audio id="audioSalah">
+    <source src="salah.mp3" type="audio/mpeg">
+</audio>
+<audio id="laguWish">
+    <source src="wish.mp3" type="audio/mpeg">
+</audio>
+<audio id="previewAudio"></audio>
+<audio id="fullAudio"></audio>
+<script>
+const ua = navigator.userAgent;
+
+const isInApp =
+  ua.includes("Instagram") ||
+  ua.includes("FBAN") ||
+  ua.includes("FBAV") ||
+  ua.includes("Line") ||
+  ua.includes("TikTok") ||
+  ua.includes("wv");
+
+if (!isInApp) {
+  document.getElementById("chrome-check").style.display = "none";
+}
+</script>
+<script src="script.js"></script>
+</body>
+</html>
