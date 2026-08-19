@@ -487,7 +487,7 @@ function changeLetterPage(arah) {
 
 // ================== UMUR ==================
 
-const birthDate = new Date("2008-05-15T12:00:00");
+const birthDate = new Date("2007-08-20T00:00:00");
 
 let intervalUmur;
 let ageCounterStart;
