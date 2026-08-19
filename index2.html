@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>For You</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="loading-cake">🎂</div>
+            <p>Preparing na...</p>
+            <p id="loading-detail" style="font-size:0.75rem; opacity:0.7; margin-top:10px; min-height:1.2em;"></p>
+            <div class="loading-bar">
+                <div class="loading-fill"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- FIRST PAGE -->
+
+        <div id="page-one" class="page active">
+            <div id="form-box">
+                <video autoplay loop muted playsinline class="floating-video" id="main-video">
+                    <source src="kicaw.webm" type="video/webm">
+                </video>
+
+                <video autoplay loop muted playsinline class="floating-video" id="wrong-video" style="opacity: 0;">
+                    <source src="salah.webm" type="video/webm">
+                </video>
+
+                <h1>Hi, It's for you!</h1>
+                <p id="label">Password...</p>
+                <input type="password" id="password" placeholder="Enter Password...">
+                <p class="clue">Clue: birthday mo</p>
+                <button onclick="checkPassword()">Masuk ✨</button>
+            </div>
+            <button onclick="goToPage(6)">Continue</button>
+        </div>
+
+        <!-- SECOND PAGE-->
+
+        <div id="page-two" class="page">
+            <h1 style="font-size: 1.8rem; line-height: 1.4;">
+                Happy 18th <br>
+                <span style="color: #060858; text-shadow: 2px 2px 10px rgba(255, 77, 109, 0.3);">
+                    ✨️Happy Birthday, Shantal!✨️
+                </span>
+            </h1>
+
+            <div class="text-box" id="scroll-box">
+                <p id="text"></p>
+            </div>
+            <button id="next-button" onclick="goToNextPage()" disabled>Wit lang...</button>
+        </div>
+
+        <div id="page-three" class="page">
+            <div id="overlay" class="dark-overlay" onclick="toggleLetter()"></div>
+
+            <h1 id="letter-title">Message for you bebe...</h1>
+            <p id="click-hint">(Click the envelope ✨)</p>
+
+            <div class="envelope-wrapper" id="envelope-wrapper" onclick="toggleLetter()">
+                <div class="envelope">
+                    <div class="flap"></div>
+                    <div class="envelope-left"></div>
+                    <div class="envelope-right"></div>
+
+                    <div class="letter">
+                        <div class="letter-content">
+                            <h3 style="color: #2214b4; margin-top: 0;">Dear, You ✨</h3>
+                            <p>Happy 18th birthday!!</p>
+                            <p>I can't gift you an expensive gift right noew, pero i've made this specially for you.</p>
+                            <p>Thanks for being in my life. Keep being happy!</p>
+                            <p>🌻🌻🌻
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="envelope-bottom"></div>
+                    <div class="seal">
+                        <img src="seal.png" alt="seal">
+                    </div>
+
+                </div>
+            </div>
+            <div id="real-letter" class="real-letter">
+                <div class="letter-pages">
+
+                    <div class="letter-page active" id="lp1">
+                        <h4>To Shantal Jeanna Guerrero</h4>
+                        <p>Ang tagal na kita di nakikita ahhh.</p>
+                        <p>Before anything else, happy 18th birthday bebe.</p>
+                    </div>
+
+                    <div class="letter-page" id="lp2">
+                        <h4>Page 2</h4>
+                        <p>Tapi jujur aku ora pernah merasa pengen ngebenci koe kok, Justru malah merasa santai aku
+                            saiki. Yo wes jatah wayah e wae asline, lagian menurutku yo penak lek awak e ora terlalu
+                            sering komunikasi kan? Tapi ya maap hehehhe. Mungkin hari-hari setelah koe terakhir
+                            chatingan mbi aku kae, enek beberapa cerito seng wes ora sempet kok ceritakne yang aku. </p>
+                    </div>
+
+                    <div class="letter-page" id="lp3">
+                        <h4>Page 3</h4>
+                        <p>Orapopo lhoo, kan enek to konco"mu seng lebih iso ngerungokne ceritamu, mup on aja. Koyo aku
+                            iki lho, lagian menurutku mup on ke ora seangel kui kok, tergantung alemu nyikapi wae
+                            asline. Aku ora nyalahne sih, coro lek koe wes mup on, dadi awak e saiki podo" wes barr.</p>
+                    </div>
+
+                    <div class="letter-page" id="lp4">
+                        <h4>Page 4</h4>
+                        <p>Tapi lek Semisal koe urung merasa barrr..... Perlu dipertanyakan sih kewarasanmu, wkwkwkwk.
+                            Ora oraa, Seng jelas koe ora bakal koyo ngunu kok(yakin sihh). Aku ke eling omonganmu seng
+                            iki "suwi-suwi bakal terbiasa kok", tibak e emang bener iso terbiasa. bahkan di detik aku
+                            gae web + nulis halaman iki aku yo gur tak bawa enjoy. Tapi aku sempet bingung sih </p>
+                    </div>
+
+                    <div class="letter-page" id="lp5">
+                        <h3>Halaman 5</h3>
+                        <p>Yo lumayan canggung barang lek semisal pas awak e papasan. Tapi mending ben ngunu wae, lagian
+                            lek tiba-tiba sok asik nek ngarepmu pora koyo sokab. Yoo mungkin semunu wae pesanku nggo
+                            koe, maaf gur iso ngenei buku mbi web iki(yo walaupun ora spesial" bangett ngene ale gae web
+                            ket tanggal 26 Aprill nonstop bro🙄). Oh iyoo, satu hall meneh. Jaga kesehatan, maemmu ojo
+                            gur fastfood terus, diimbangi mbi sayur sayuran barang.</p>
+                    </div>
+                    <div class="letter-page" id="lp6">
+                        <h3>Halaman 6</h3>
+                        <p> Mesakne awakmu kui, meh 1 tahun gur nambah 0,2cm. wkwkwkwkwk, mungkin maksudmu dienggo genep
+                            ben iso 151 to? becanda kok becanda hehehe. Mungkin iki last gift kat aku nggo koe, aku ora
+                            berharap koe rep mbales pemberianku, aku emang wes ikhlas kok. Tapi lek koe rep ngenei aku
+                            sesuatu yo ora bakal nolak sih, bakal tak terima wae. wiss ngunu wae, tetep semangat
+                            yaa(Semangat 45🔥)</p>
+                    </div>
+                </div>
+
+                <div class="letter-nav" id="letterNav">
+                    <button id="previous-button" onclick="changeLetterPage(-1)" style="display:none;">← Kembali</button>
+                    <span id="page-indicator">1 / 3</span>
+                    <button id="next-letter-button" onclick="changeLetterPage(1)" disabled>Lanjut →</button>
+                </div>
+            </div>
+
+            <div style="width: 100%; display: flex; justify-content: center;">
+                <button id="continue-button" class="hidden-btn" onclick="goToPage(5)">Lanjut ✨</button>
+            </div>
+        </div>
+
+        <div id="page-four" class="page">
+            <div id="form-box">
+
+                <div id="age-header">
+                    <h1 style="font-size: 2.5rem;">Lihat usiaku sekarang
+                    </h1>
+                </div>
+
+                <div id="age-result" class="age-hidden" style="margin-top:20px; line-height:1.8; font-size:1.1rem;">
+                    Tekan tombol dulu.
+                </div>
+
+                <button id="age-button" onclick="startAge()" style="margin-top: 25px;">
+                    Lihat Umur ✨
+                </button>
+
+                <button id="next-button" class="hidden-btn" onclick="continueMessage()">
+                    Lanjut ✨
+                </button>
+            </div>
+        </div>
+
+
+        <div id="page-five" class="page">
+            <h2>Pilih hadiah kamu hari ini!</h2>
+            <div class="choice-box">
+                <button onclick="sendAnswer('Seblak Komplit')">Pesen Seblak 🍜</button>
+                <button onclick="sendAnswer('Peluk Online')">Peluk Online 🤗</button>
+                <button onclick="sendAnswer('Jalan-jalan')">Diajak Jalan-jalan 🚗</button>
+            </div>
+        </div>
+
+        <!-- MAKE A WISH PAGE -->
+        <div id="page-six" class="page">
+            <h1 style="margin-bottom: 4px;">Make a Wish</h1>
+            <p style="font-size: 1.0rem; color: rgba(255,255,255,0.8); margin-top: 0;">
+                Buat impian dan tap semua lilinnyaa
+            </p>
+
+            <div class="cake-wrapper">
+                <!-- Candles -->
+                <div class="candle-row">
+                    <div class="candle" id="candle1" onclick="blowOutCandle(1)">
+                        <div class="flame" id="flame1"></div>
+                        <div class="candle-stick"></div>
+                    </div>
+                    <div class="candle" id="candle2" onclick="blowOutCandle(2)">
+                        <div class="flame" id="flame2"></div>
+                        <div class="candle-stick"></div>
+                    </div>
+                    <div class="candle" id="candle3" onclick="blowOutCandle(3)">
+                        <div class="flame" id="flame3"></div>
+                        <div class="candle-stick"></div>
+                    </div>
+                    <div class="candle" id="candle4" onclick="blowOutCandle(4)">
+                        <div class="flame" id="flame4"></div>
+                        <div class="candle-stick"></div>
+                    </div>
+                    <div class="candle" id="candle5" onclick="blowOutCandle(5)">
+                        <div class="flame" id="flame5"></div>
+                        <div class="candle-stick"></div>
+                    </div>
+
+                    <div class="candle" id="candle6" onclick="blowOutCandle(6)">
+                        <div class="flame" id="flame6"></div>
+                        <div class="candle-stick"></div>
+                    </div>
+                </div>
+
+                <!-- CAKE -->
+                <div class="cake">
+                    <div class="cake-top-cap"></div>
+                    <div class="cake-layer cake-upper-layer"></div>
+                    <div class="upper-frosting"></div>
+                    <div class="cake-layer cake-lower-layer"></div>
+                    <div class="lower-frosting"></div>
+                    <div class="cake-bottom-cap"></div>
+                    <div class="cake-plate"></div>
+                </div>
+            </div>
+            <p id="wish-hint" style="font-size:1.0rem; margin-top:14px; font-style:italic;">
+            </p>
+
+            <div id="wish-message">
+                <div class="wish-box">
+
+                    <p>🎂 Semoga semua harap dan semua doa-doa kamu dapat terkabul</p>
+                    <p>~Aamiin~</p>
+                    <button id="wish-continue-button" class="show-btn" onclick="continueToPlaylist()">
+                        Lanjut ✨
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-seven" class="page">
+            <h1 style="margin-bottom:10px;">
+                Pilih Lagu Dulu 🎧
+            </h1>
+
+            <p style="
+    opacity:0.8;
+    font-size:0.95rem;
+    margin-bottom:25px;
+    line-height:1.6;
+">
+                pilih lagu yang mau nemenin kamu<br>
+                buat buka surat setelah ini.
+            </p>
+
+            <div class="album-slider">
+
+                <button class="nav-btn left" onclick="previousAlbum()">❮</button>
+
+                <div class="album-wrapper">
+                    <div class="album-track">
+
+                        <div class="album-slide" data-audio="about.mp3" data-start="84">
+                            <div class="album-card">
+                                <img src="Album1.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>About You</h3>
+                                    <p>The 1975</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="nadhif.mp3" data-start="85.5">
+                            <div class="album-card">
+                                <img src="album2.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Kota ini tak sama tanpamu</h3>
+                                    <p>Nadhif Basalamah</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="nuca.mp3" data-start=118.3>
+                            <div class="album-card">
+                                <img src="album3.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Masa ini, Nanti, dan Masa Indah Lainnya</h3>
+                                    <p>Nuca</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="fixyou.mp3" data-start="68">
+                            <div class="album-card">
+                                <img src="album4.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Fix You</h3>
+                                    <p>Coldplay</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="blue.mp3" data-start="0">
+                            <div class="album-card">
+                                <img src="album5.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Blue</h3>
+                                    <p>Yung Kai</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="hindia.mp3" data-start="0">
+                            <div class="album-card">
+                                <img src="album6.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Rumah ke Rumah</h3>
+                                    <p>Hindia</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="lesungpipi.mp3" data-start="51.5">
+                            <div class="album-card">
+                                <img src="album7.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Lesung Pipi</h3>
+                                    <p>Raim Laode</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="album-slide" data-audio="neira.mp3" data-start="170.5">
+                            <div class="album-card">
+                                <img src="album8.jpg" class="album-cover">
+                                <div class="album-info">
+                                    <h3>Sampai Jadi Debu</h3>
+                                    <p>Banda Neira</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <button class="nav-btn right" onclick="nextAlbum()">❯</button>
+
+            </div>
+
+            <button onclick="goToPage(4)" style="margin-top:25px;">
+                Lanjut ✨
+            </button>
+        </div>
+
+
+    </div>
+    <div id="message-overlay" class="pesan-overlay">
+        <div class="pesan-box">
+            <p id="motivational-message"></p>
+
+            <div class="message-actions">
+                <button onclick="returnToAge()">Kembali</button>
+                <button onclick="nextFromMessage()">Lanjut</button>
+            </div>
+        </div>
+    </div>
+    <audio id="birthday-song">
+        <source src="birthday.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wrong-answer-sound">
+        <source src="salah.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="wish-song">
+        <source src="wish.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="preview-audio"></audio>
+    <audio id="full-audio"></audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
