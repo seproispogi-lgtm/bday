@@ -126,7 +126,7 @@ function checkPassword() {
         tutupKeyboard();
         selebrasi();
         document.getElementById("page-one").classList.remove("active");
-        document.getElementById("page-two").classList.add("active");
+        document.getElementById("page-six").classList.add("active");
         birthdaySong.play().catch(e => console.log("Audio butuh interaksi"));
         mulaiTyping();
         hujanKonfeti();
@@ -422,7 +422,7 @@ function toggleLetter() {
             const btn = document.getElementById("continue-button");
             if (!btn.classList.contains("show-btn")) {
                 btn.innerText = "See One More Thing ✨";
-                btn.onclick = () => goToPage(5);
+                btn.onclick = () => showMessageAfterLetter();
                 btn.classList.add("show-btn");
             }
         }, 1000);
@@ -549,6 +549,15 @@ Rest is okay, but giving up would be too small a choice for everything you have 
     document.getElementById("message-overlay").classList.add("show");
 }
 
+function showMessageAfterLetter() {
+    document.getElementById("motivational-message").innerText = `
+Thank you for opening this little birthday letter.
+I hope it made you smile and reminded you how special you are.
+Happy 18th birthday, Shantal. Keep growing, keep dreaming, and keep being you.
+`;
+    document.getElementById("message-overlay").classList.add("show");
+}
+
 function updateUmur() {
     const now = new Date();
     let start = new Date(birthDate);
@@ -639,7 +648,7 @@ function returnToAge() {
 
 function nextFromMessage() {
     document.getElementById("message-overlay").classList.remove("show");
-    goToPage(3);
+    goToPage(5);
 }
 
 function sendAnswer(pilihan) {
