@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For You</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:ital,wght@0,500;0,600;1,600&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 
@@ -13,8 +16,9 @@
     <div id="loading-screen">
         <div class="loading-content">
             <div class="loading-cake">🎂</div>
-            <p>Preparing na...</p>
+            <p>Preparing...</p>
             <p id="loading-detail" style="font-size:0.75rem; opacity:0.7; margin-top:10px; min-height:1.2em;"></p>
+            <h1 id="welcome-message">Hi <span>Shantal!</span></h1>
             <div class="loading-bar">
                 <div class="loading-fill"></div>
             </div>
@@ -39,8 +43,8 @@
                 <h1>Hi, It's for you!</h1>
                 <p id="label">Password...</p>
                 <input type="password" id="password" placeholder="Enter Password...">
-                <p class="clue">Clue: birthday mo</p>
-                <button onclick="checkPassword()">Masuk ✨</button>
+                <p class="clue">Clue: your birthday</p>
+                <button onclick="checkPassword()">Enter ✨</button>
             </div>
             <button onclick="goToPage(6)">Continue</button>
         </div>
@@ -58,13 +62,13 @@
             <div class="text-box" id="scroll-box">
                 <p id="text"></p>
             </div>
-            <button id="next-button" onclick="goToNextPage()" disabled>Wit lang...</button>
+            <button id="next-button" onclick="goToNextPage()" disabled>Please wait...</button>
         </div>
 
         <div id="page-three" class="page">
             <div id="overlay" class="dark-overlay" onclick="toggleLetter()"></div>
 
-            <h1 id="letter-title">Message for you bebe...</h1>
+            <h1 id="letter-title">A message for you, dear...</h1>
             <p id="click-hint">(Click the envelope ✨)</p>
 
             <div class="envelope-wrapper" id="envelope-wrapper" onclick="toggleLetter()">
@@ -96,60 +100,61 @@
 
                     <div class="letter-page active" id="lp1">
                         <h4>To Shantal Jeanna Guerrero</h4>
-                        <p>Ang tagal na kita di nakikita ahhh.</p>
-                        <p>Before anything else, happy 18th birthday bebe.</p>
+                        <p>It has been such a long time since I last saw you.</p>
+                        <p>Before anything else, happy 18th birthday, dear.</p>
                     </div>
 
                     <div class="letter-page" id="lp2">
                         <h4>Page 2</h4>
-                        <p>Tapi jujur aku ora pernah merasa pengen ngebenci koe kok, Justru malah merasa santai aku
-                            saiki. Yo wes jatah wayah e wae asline, lagian menurutku yo penak lek awak e ora terlalu
-                            sering komunikasi kan? Tapi ya maap hehehhe. Mungkin hari-hari setelah koe terakhir
-                            chatingan mbi aku kae, enek beberapa cerito seng wes ora sempet kok ceritakne yang aku. </p>
+                        <p>Honestly, I never felt like hating you. I actually feel peaceful now. Maybe this is simply
+                            how things were meant to be, and perhaps it is better when we do not communicate too often.
+                            I am sorry, hehe. There may be stories from the days after our last conversation that I
+                            never got the chance to tell you.</p>
                     </div>
 
                     <div class="letter-page" id="lp3">
                         <h4>Page 3</h4>
-                        <p>Orapopo lhoo, kan enek to konco"mu seng lebih iso ngerungokne ceritamu, mup on aja. Koyo aku
-                            iki lho, lagian menurutku mup on ke ora seangel kui kok, tergantung alemu nyikapi wae
-                            asline. Aku ora nyalahne sih, coro lek koe wes mup on, dadi awak e saiki podo" wes barr.</p>
+                        <p>It is okay. You have friends who can listen to your stories, so keep moving forward. I am
+                            proof that moving on is not as impossible as it seems; it depends on how you choose to
+                            face it. I am not blaming you. If you have moved on, then perhaps we have both found peace.</p>
                     </div>
 
                     <div class="letter-page" id="lp4">
                         <h4>Page 4</h4>
-                        <p>Tapi lek Semisal koe urung merasa barrr..... Perlu dipertanyakan sih kewarasanmu, wkwkwkwk.
-                            Ora oraa, Seng jelas koe ora bakal koyo ngunu kok(yakin sihh). Aku ke eling omonganmu seng
-                            iki "suwi-suwi bakal terbiasa kok", tibak e emang bener iso terbiasa. bahkan di detik aku
-                            gae web + nulis halaman iki aku yo gur tak bawa enjoy. Tapi aku sempet bingung sih </p>
+                        <p>But if you still do not feel okay, I might have to question your sanity, hahaha. Just kidding.
+                            I know you will be fine. I remember you once said, "you will get used to it with time," and
+                            it turns out you were right. Even while making this website and writing these pages, I have
+                            learned to simply enjoy the moment. Still, I was a little confused.</p>
                     </div>
 
                     <div class="letter-page" id="lp5">
-                        <h3>Halaman 5</h3>
-                        <p>Yo lumayan canggung barang lek semisal pas awak e papasan. Tapi mending ben ngunu wae, lagian
-                            lek tiba-tiba sok asik nek ngarepmu pora koyo sokab. Yoo mungkin semunu wae pesanku nggo
-                            koe, maaf gur iso ngenei buku mbi web iki(yo walaupun ora spesial" bangett ngene ale gae web
-                            ket tanggal 26 Aprill nonstop bro🙄). Oh iyoo, satu hall meneh. Jaga kesehatan, maemmu ojo
-                            gur fastfood terus, diimbangi mbi sayur sayuran barang.</p>
+                        <h3>Page 5</h3>
+                        <p>It can still feel awkward when we happen to pass each other. But perhaps it is better this
+                            way; suddenly acting overly friendly might feel strange. This may be all I have to say:
+                            I am sorry I could only give you this book and website, even though they are not very
+                            special. I have been working on this website since April 26 without stopping, bro 🙄.
+                            One more thing: take care of yourself, eat properly, and do not live on fast food. Add
+                            some vegetables too.</p>
                     </div>
                     <div class="letter-page" id="lp6">
-                        <h3>Halaman 6</h3>
-                        <p> Mesakne awakmu kui, meh 1 tahun gur nambah 0,2cm. wkwkwkwkwk, mungkin maksudmu dienggo genep
-                            ben iso 151 to? becanda kok becanda hehehe. Mungkin iki last gift kat aku nggo koe, aku ora
-                            berharap koe rep mbales pemberianku, aku emang wes ikhlas kok. Tapi lek koe rep ngenei aku
-                            sesuatu yo ora bakal nolak sih, bakal tak terima wae. wiss ngunu wae, tetep semangat
-                            yaa(Semangat 45🔥)</p>
+                        <h3>Page 6</h3>
+                        <p>Take care of yourself. You have almost spent a whole year growing only 0.2 cm, hahaha.
+                            Maybe you were trying to reach exactly 151 cm? I am kidding. This may be my last gift to
+                            you, and I do not expect you to return it. I have sincerely let go. But if you ever want to
+                            give me something, I would not refuse it; I would gladly accept it. That is all. Keep your
+                            spirit up and stay strong 🔥.</p>
                     </div>
                 </div>
 
                 <div class="letter-nav" id="letterNav">
-                    <button id="previous-button" onclick="changeLetterPage(-1)" style="display:none;">← Kembali</button>
+                    <button id="previous-button" onclick="changeLetterPage(-1)" style="display:none;">← Back</button>
                     <span id="page-indicator">1 / 3</span>
-                    <button id="next-letter-button" onclick="changeLetterPage(1)" disabled>Lanjut →</button>
+                    <button id="next-letter-button" onclick="changeLetterPage(1)" disabled>Next →</button>
                 </div>
             </div>
 
             <div style="width: 100%; display: flex; justify-content: center;">
-                <button id="continue-button" class="hidden-btn" onclick="goToPage(5)">Lanjut ✨</button>
+                <button id="continue-button" class="hidden-btn" onclick="goToPage(5)">Continue ✨</button>
             </div>
         </div>
 
@@ -157,31 +162,31 @@
             <div id="form-box">
 
                 <div id="age-header">
-                    <h1 style="font-size: 2.5rem;">Lihat usiaku sekarang
+                    <h1 style="font-size: 2.5rem;">See my age now
                     </h1>
                 </div>
 
                 <div id="age-result" class="age-hidden" style="margin-top:20px; line-height:1.8; font-size:1.1rem;">
-                    Tekan tombol dulu.
+                    Press the button first.
                 </div>
 
                 <button id="age-button" onclick="startAge()" style="margin-top: 25px;">
-                    Lihat Umur ✨
+                    See Age ✨
                 </button>
 
                 <button id="next-button" class="hidden-btn" onclick="continueMessage()">
-                    Lanjut ✨
+                    Continue ✨
                 </button>
             </div>
         </div>
 
 
         <div id="page-five" class="page">
-            <h2>Pilih hadiah kamu hari ini!</h2>
+            <h2>Choose your gift today!</h2>
             <div class="choice-box">
-                <button onclick="sendAnswer('Seblak Komplit')">Pesen Seblak 🍜</button>
-                <button onclick="sendAnswer('Peluk Online')">Peluk Online 🤗</button>
-                <button onclick="sendAnswer('Jalan-jalan')">Diajak Jalan-jalan 🚗</button>
+                <button onclick="sendAnswer('Complete seblak')">Order Seblak 🍜</button>
+                <button onclick="sendAnswer('Online hug')">Online Hug 🤗</button>
+                <button onclick="sendAnswer('A day out')">A Day Out 🚗</button>
             </div>
         </div>
 
@@ -189,7 +194,7 @@
         <div id="page-six" class="page">
             <h1 style="margin-bottom: 4px;">Make a Wish</h1>
             <p style="font-size: 1.0rem; color: rgba(255,255,255,0.8); margin-top: 0;">
-                Buat impian dan tap semua lilinnyaa
+                Make a wish and tap all the candles
             </p>
 
             <div class="cake-wrapper">
@@ -239,10 +244,10 @@
             <div id="wish-message">
                 <div class="wish-box">
 
-                    <p>🎂 Semoga semua harap dan semua doa-doa kamu dapat terkabul</p>
-                    <p>~Aamiin~</p>
+                    <p>🎂 May all your hopes and prayers come true.</p>
+                    <p>~Amen~</p>
                     <button id="wish-continue-button" class="show-btn" onclick="continueToPlaylist()">
-                        Lanjut ✨
+                        Continue ✨
                     </button>
                 </div>
             </div>
@@ -250,7 +255,7 @@
 
         <div id="page-seven" class="page">
             <h1 style="margin-bottom:10px;">
-                Pilih Lagu Dulu 🎧
+                Choose a Song 🎧
             </h1>
 
             <p style="
@@ -259,8 +264,8 @@
     margin-bottom:25px;
     line-height:1.6;
 ">
-                pilih lagu yang mau nemenin kamu<br>
-                buat buka surat setelah ini.
+                choose a song to keep you company<br>
+                while you open the letter next.
             </p>
 
             <div class="album-slider">
@@ -284,7 +289,7 @@
                             <div class="album-card">
                                 <img src="album2.jpg" class="album-cover">
                                 <div class="album-info">
-                                    <h3>Kota ini tak sama tanpamu</h3>
+                                    <h3>This City Is Not the Same Without You</h3>
                                     <p>Nadhif Basalamah</p>
                                 </div>
                             </div>
@@ -294,7 +299,7 @@
                             <div class="album-card">
                                 <img src="album3.jpg" class="album-cover">
                                 <div class="album-info">
-                                    <h3>Masa ini, Nanti, dan Masa Indah Lainnya</h3>
+                                    <h3>This Time, the Future, and Other Beautiful Moments</h3>
                                     <p>Nuca</p>
                                 </div>
                             </div>
@@ -324,7 +329,7 @@
                             <div class="album-card">
                                 <img src="album6.jpg" class="album-cover">
                                 <div class="album-info">
-                                    <h3>Rumah ke Rumah</h3>
+                                    <h3>From House to House</h3>
                                     <p>Hindia</p>
                                 </div>
                             </div>
@@ -344,7 +349,7 @@
                             <div class="album-card">
                                 <img src="album8.jpg" class="album-cover">
                                 <div class="album-info">
-                                    <h3>Sampai Jadi Debu</h3>
+                                    <h3>Until We Become Dust</h3>
                                     <p>Banda Neira</p>
                                 </div>
                             </div>
@@ -358,7 +363,7 @@
             </div>
 
             <button onclick="goToPage(4)" style="margin-top:25px;">
-                Lanjut ✨
+                Continue ✨
             </button>
         </div>
 
@@ -369,8 +374,8 @@
             <p id="motivational-message"></p>
 
             <div class="message-actions">
-                <button onclick="returnToAge()">Kembali</button>
-                <button onclick="nextFromMessage()">Lanjut</button>
+                <button onclick="returnToAge()">Back</button>
+                <button onclick="nextFromMessage()">Continue</button>
             </div>
         </div>
     </div>
@@ -386,7 +391,7 @@
     <audio id="preview-audio"></audio>
     <audio id="full-audio"></audio>
 
-    <script src="script.js"></script>
+    <script src="18s.js"></script>
 </body>
 
 </html>

@@ -20,7 +20,7 @@ window.onload = function () {
         loaded++;
         const persen = Math.round((loaded / total) * 100);
         if (fill) fill.style.width = persen + "%";
-        if (label) label.innerText = `Menyiapkan... ${persen}%`;
+        if (label) label.innerText = `Loading... ${persen}%`;
 
         // Teks detail file yang sedang di-load
         const detail = document.getElementById("loading-detail");
@@ -39,13 +39,14 @@ window.onload = function () {
         if (selesaiLoading.sudah) return;
         selesaiLoading.sudah = true;
         const screen = document.getElementById("loading-screen");
-        if (label) label.innerText = "Siap! ✨";
+        if (label) label.innerText = "Ready! ✨";
         const detail = document.getElementById("loading-detail");
         if (detail) detail.innerText = "";
+        screen.classList.add("ready");
         setTimeout(() => {
             screen.classList.add("hide");
             setTimeout(() => screen.remove(), 800);
-        }, 600);
+        }, 2000);
     }
 
     assets.forEach(src => {
@@ -91,9 +92,9 @@ window.onload = function () {
 const passwordList = ["fanezha", "nezha", "fanesa", "fanes", "nejul", "nesha", "nesa"];
 const birthdaySong = document.getElementById("birthday-song");
 const messages = [
-    `selamat ulang tahun ya!
+    `Happy birthday!
 
- sorry aku urung iso ngucapne langsung yang koe. mugo wae dengan umurmu seng saiki, koe iso makin lebih dewasa mbi lebih berkembang meneh. yo mungkin iki udu tahun seng apik dienggo koe, tapi aku yakin tahun iki koe iso memetik pelajaran seng berharga dienggo hidupmu. eling-eling wae jal, "pelangi tidak akan pernah muncul sebelum hujan turun", dadi yaa nikmati wae perjalananmu, suatu saat bakal e cerah mbi seindah koyo pelangi kok.`
+I am sorry I could not say it to you in person. I hope that with your new age, you become more mature and continue to grow. This may not have been the easiest year for you, but I believe you can take valuable lessons from it. Remember, "the rainbow never appears before the rain," so enjoy your journey. Someday, it will become bright and beautiful, just like a rainbow.`
 ];
 
 function ketikSurat(el, text, speed = 55) {
@@ -143,7 +144,7 @@ function handleSandiSalah(v_utama, v_salah, suaraSalah) {
     let label = document.getElementById("label");
     let box = document.querySelector("#page-one #form-box");
 
-    label.innerText = "Sandi salah!";
+    label.innerText = "Incorrect password!";
     box.classList.add("shake");
 
     v_utama.style.opacity = "0";
@@ -182,7 +183,7 @@ function selebrasi() {
 document.getElementById("password").addEventListener("input", () => {
     document.getElementById("main-video").style.opacity = "1";
     document.getElementById("wrong-video").style.opacity = "0";
-    document.getElementById("label").innerText = "Masukin sandi dulu ya...";
+    document.getElementById("label").innerText = "Please enter your password...";
 
     let wrongAnswerSound = document.getElementById("wrong-answer-sound");
     if (wrongAnswerSound) {
@@ -231,14 +232,14 @@ function mulaiTyping() {
     } else {
         let btn = document.getElementById("next-button");
         btn.disabled = false;
-        btn.innerText = "Lanjut️🌻";
+        btn.innerText = "Continue️🌻";
     }
 }
 
 function goToNextPage() {
     let btn = document.getElementById("next-button");
     btn.disabled = true;
-    btn.innerText = "Tunggu ya...";
+    btn.innerText = "Please wait...";
 
     let vol = 1;
     let fadeOut = setInterval(() => {
@@ -361,7 +362,7 @@ function toggleLetter() {
     // 1. buka amplop
     if (!wrapper.classList.contains('open')) {
         wrapper.classList.add('open');
-        hint.innerText = "(Klik sekali lagi buat tarik suratnya)";
+        hint.innerText = "(Click once more to pull out the letter)";
         return;
     }
 
@@ -402,13 +403,13 @@ function toggleLetter() {
         overlay.classList.remove('active');
         fakeLetter.style.zIndex = "";
         hint.style.opacity = "0.6";
-        hint.innerText = "(Klik amplopnya ya ✨)";
+        hint.innerText = "(Click the envelope ✨)";
         suratSelesai = false;
 
         setTimeout(() => {
             const btn = document.getElementById("continue-button");
             if (!btn.classList.contains("show-btn")) {
-                btn.innerText = "Lihat Satu Hal Lagi ✨";
+                btn.innerText = "See One More Thing ✨";
                 btn.onclick = () => goToPage(5);
                 btn.classList.add("show-btn");
             }
@@ -445,11 +446,11 @@ function munculkanTombolLembar() {
     }
 
     if (currentLembar === totalLembar) {
-        btnNext.innerText = "Tutup ✨";
+        btnNext.innerText = "Close ✨";
         btnNext.style.display = "block";
         btnNext.onclick = () => closeLetter();
     } else {
-        btnNext.innerText = "Lanjut →";
+        btnNext.innerText = "Next →";
         btnNext.style.display = "block";
         btnNext.onclick = () => changeLetterPage(1);
     }
@@ -524,10 +525,10 @@ function startAge() {
 
 function continueMessage() {
     const text = `
-Delok o disek,
-seberapa lama koe wes bertahan selama iki? koe wes tekan sak adoh iki udu gur perkoro kebetulan tok lho.
-kabeh kesel, kabeh luka, kabeh dino abotmu ke bener enek e. ojo sering ngeremehne awakmu dewe ming gur perkara saiki koe lagi kesel.
-istirahat olehh, tapi lek soal nyerah mahh kui pilihan seng terlalu murah nggo kabeh seng wes kok lewati selama iki. alon-alon wae, urip udu soal lomba cepet-cepetan, tapi soal sopo seng tetep mampu berjalan meskipun kui berkali-kali tibo.
+Look at how far you have come.
+How long have you kept going? You have made it this far, and it is not just a coincidence.
+Every exhaustion, every wound, and every difficult day was real. Do not underestimate yourself just because you are tired.
+Rest is okay, but giving up would be too small a choice for everything you have overcome. Take it slowly. Life is not a race; it is about continuing to walk even after falling many times.
 `;
 
     document.getElementById("motivational-message").innerText = text;
@@ -573,52 +574,52 @@ function updateUmur() {
 
     document.getElementById("age-result").innerHTML = `
     <div class="hasil-box">
-        <h3>Usia Kamu</h3>
+        <h3>Your Age</h3>
         <div class="umur-utama">
             ${years} Tahun ${months} Bulan ${days} Hari
         </div>
     </div>
 
     <div class="hasil-box">
-        <h3>Kamu Telah Hidup</h3>
+        <h3>You Have Been Alive For</h3>
 
         <div class="row">
-            <span>Dalam Tahun</span>
+            <span>Years</span>
             <b>${totalYears}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Bulan</span>
+            <span>Months</span>
             <b>${totalMonths}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Minggu</span>
+            <span>Weeks</span>
             <b>${totalWeeks}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Hari</span>
+            <span>Days</span>
             <b>${totalDays}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Jam</span>
+            <span>Hours</span>
             <b>${totalHours}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Menit</span>
+            <span>Minutes</span>
             <b>${totalMinutes}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Detik</span>
+            <span>Seconds</span>
             <b>${totalSeconds}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Milidetik</span>
+            <span>Milliseconds</span>
             <b>${totalMs}</b>
         </div>
     </div>
@@ -636,7 +637,7 @@ function nextFromMessage() {
 
 function sendAnswer(pilihan) {
     var nomorWA = "6283861084598";
-    var pesan = "Hai! Aku baru selesai buka websitenya, dan aku pilih hadiah: " + pilihan;
+    var pesan = "Hi! I just finished opening the website, and I chose this gift: " + pilihan;
     var url = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(pesan);
     window.open(url, '_blank');
     goToPage(6);
@@ -699,7 +700,7 @@ function continueToPlaylist() {
     const wishSong = document.getElementById("wish-song");
 
     btn.disabled = true;
-    btn.innerText = "Tunggu sebentar...";
+    btn.innerText = "Please wait a moment...";
 
     let volume = 1;
 
@@ -718,7 +719,7 @@ function continueToPlaylist() {
     setTimeout(() => {
         goToPage(7);
         btn.disabled = false;
-        btn.innerText = "Lanjut ✨";
+        btn.innerText = "Continue ✨";
     }, 0);
 }
 

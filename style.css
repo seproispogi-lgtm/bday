@@ -62,6 +62,37 @@
     opacity: 0.9;
 }
 
+#welcome-message {
+    margin: 18px 0 10px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    animation: welcomeAppear 1s ease-out 1.2s forwards;
+}
+
+#welcome-message span {
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+    font-weight: 600;
+}
+
+#loading-screen.ready #welcome-message {
+    animation-delay: 0s;
+}
+
+@keyframes welcomeAppear {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .loading-bar {
     width: 200px;
     height: 6px;
