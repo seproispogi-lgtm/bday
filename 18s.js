@@ -88,7 +88,7 @@ window.onload = function () {
 };
 
 
-const passwordList = ["fanezha", "nezha", "fanesa", "fanes", "nejul", "nesha", "nesa"];
+const passwordList = ["101200"];
 const birthdaySong = document.getElementById("birthday-song");
 const messages = [
     `Happy birthday!
