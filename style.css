@@ -1860,3 +1860,139 @@ button:active {
 .nav-btn {
     background: rgba(169, 221, 255, 0.3);
 }
+
+.cake-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 18px;
+}
+
+.candle-row {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    min-height: 76px;
+    position: relative;
+    z-index: 2;
+}
+
+.candle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+}
+
+.flame {
+    width: 15px;
+    height: 23px;
+    margin-bottom: 3px;
+    border-radius: 50% 50% 35% 35%;
+    background: radial-gradient(ellipse at 50% 80%, #ffffff 0 20%, #a9ddff 45%, #3da9fc 75%, transparent 100%);
+    filter: drop-shadow(0 0 8px #65c8ff);
+    animation: flameFlicker 0.55s ease-in-out infinite alternate;
+    transform-origin: bottom center;
+}
+
+.flame.mati {
+    opacity: 0;
+    transform: scaleY(0);
+    pointer-events: none;
+}
+
+@keyframes flameFlicker {
+    from { transform: rotate(-7deg) scale(0.92); }
+    to { transform: rotate(7deg) scale(1.08); }
+}
+
+.candle-stick {
+    width: 12px;
+    height: 48px;
+    border-radius: 6px 6px 3px 3px;
+    background: linear-gradient(90deg, #1455b8, #a9ddff 45%, #2185d7);
+    box-shadow: inset -2px 0 5px rgba(5, 37, 112, 0.3);
+}
+
+.cake {
+    position: relative;
+    width: 220px;
+    height: 150px;
+    margin-top: -4px;
+    filter: drop-shadow(0 18px 25px rgba(5, 37, 112, 0.35));
+}
+
+.cake-top-cap,
+.cake-layer,
+.upper-frosting,
+.lower-frosting,
+.cake-bottom-cap,
+.cake-plate {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.cake-top-cap {
+    top: 10px;
+    width: 204px;
+    height: 22px;
+    border-radius: 50%;
+    background: #e7f6ff;
+    z-index: 4;
+}
+
+.cake-layer {
+    width: 192px;
+    border-radius: 8px;
+    background: linear-gradient(180deg, #3da9fc, #1455b8);
+}
+
+.cake-upper-layer {
+    top: 22px;
+    height: 54px;
+    z-index: 3;
+}
+
+.cake-lower-layer {
+    top: 66px;
+    height: 55px;
+    z-index: 2;
+}
+
+.upper-frosting,
+.lower-frosting {
+    width: 208px;
+    height: 17px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #e7f6ff, #65c8ff);
+    z-index: 5;
+}
+
+.upper-frosting { top: 68px; }
+.lower-frosting { top: 112px; }
+
+.cake-bottom-cap {
+    top: 120px;
+    width: 208px;
+    height: 18px;
+    border-radius: 50%;
+    background: #1455b8;
+}
+
+.cake-plate {
+    top: 133px;
+    width: 238px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #e7f6ff, #3da9fc);
+}
+
+.final-cake .cake {
+    animation: cakeForming 1.4s cubic-bezier(.22, 1, .36, 1) both;
+}
+
+@keyframes cakeForming {
+    from { opacity: 0; transform: translateY(35px) scale(0.65); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}

@@ -126,7 +126,7 @@ function checkPassword() {
         tutupKeyboard();
         selebrasi();
         document.getElementById("page-one").classList.remove("active");
-        document.getElementById("page-two").classList.add("active");
+        document.getElementById("page-six").classList.add("active");
         birthdaySong.play().catch(e => console.log("Audio butuh interaksi"));
         mulaiTyping();
         hujanKonfeti();
@@ -288,6 +288,16 @@ function goToPage(nomor) {
     if (target) {
         target.classList.add("active");
     }
+        if (nomor === 6 && finalCake) {
+            document.getElementById("page-six").classList.add("final-cake");
+            document.getElementById("wish-message").classList.remove("show");
+            document.querySelectorAll(".flame").forEach(flame => flame.classList.remove("mati"));
+            document.querySelectorAll(".candle").forEach(candle => candle.style.cursor = "pointer");
+            if (!petalsStarted) {
+                petalsStarted = true;
+                startPetals();
+            }
+        }
     if (nomor === 7) {
         setTimeout(() => {
             updateAlbum();
@@ -350,6 +360,8 @@ function hujanKonfeti() {
 
 let timerTombol;
 let suratSelesai = false;
+let finalCake = false;
+let petalsStarted = false;
 
 function toggleLetter() {
     const wrapper = document.getElementById('envelope-wrapper');
@@ -409,7 +421,10 @@ function toggleLetter() {
             const btn = document.getElementById("continue-button");
             if (!btn.classList.contains("show-btn")) {
                 btn.innerText = "See One More Thing ✨";
-                btn.onclick = () => goToPage(5);
+                btn.onclick = () => {
+                    finalCake = true;
+                    goToPage(6);
+                };
                 btn.classList.add("show-btn");
             }
         }, 1000);
