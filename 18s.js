@@ -288,16 +288,16 @@ function goToPage(nomor) {
     if (target) {
         target.classList.add("active");
     }
-        if (nomor === 6 && finalCake) {
-            document.getElementById("page-six").classList.add("final-cake");
-            document.getElementById("wish-message").classList.remove("show");
-            document.querySelectorAll(".flame").forEach(flame => flame.classList.remove("mati"));
-            document.querySelectorAll(".candle").forEach(candle => candle.style.cursor = "pointer");
-            if (!petalsStarted) {
-                petalsStarted = true;
-                startPetals();
-            }
+    if (nomor === 6 && finalCake) {
+        document.getElementById("page-six").classList.add("final-cake");
+        document.getElementById("wish-message").classList.remove("show");
+        document.querySelectorAll(".flame").forEach(flame => flame.classList.remove("mati"));
+        document.querySelectorAll(".candle").forEach(candle => candle.style.cursor = "pointer");
+        if (!petalsStarted) {
+            petalsStarted = true;
+            startPetals();
         }
+    }
     if (nomor === 7) {
         setTimeout(() => {
             updateAlbum();
@@ -373,7 +373,8 @@ function toggleLetter() {
     // 1. buka amplop
     if (!wrapper.classList.contains('open')) {
         wrapper.classList.add('open');
-        hint.innerText = "(Click once more to pull out the letter)";
+        hint.innerText = "Opening your message...";
+        setTimeout(() => toggleLetter(), 750);
         return;
     }
 
