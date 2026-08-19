@@ -112,12 +112,10 @@ window.onload = function () {
 };
 
 
-const sandiList = ["fanezha", "nezha", "fanesa", "fanes", "nejul", "nesha", "nesa"];
+const sandiList = ["101200"];
 const lagu = document.getElementById("myLagu");
 const kalimat = [
-    `selamat ulang tahun ya!
-
- sorry aku urung iso ngucapne langsung yang koe. mugo wae dengan umurmu seng saiki, koe iso makin lebih dewasa mbi lebih berkembang meneh. yo mungkin iki udu tahun seng apik dienggo koe, tapi aku yakin tahun iki koe iso memetik pelajaran seng berharga dienggo hidupmu. eling-eling wae jal, "pelangi tidak akan pernah muncul sebelum hujan turun", dadi yaa nikmati wae perjalananmu, suatu saat bakal e cerah mbi seindah koyo pelangi kok.`
+    "Happy birthday, Shantal! 🥳 Wishing you lots of happiness, good health, and more amazing memories. Enjoy your day!🎉💗 ------ [sef] as a friend"
 ];
 
 function ketikSurat(el, text, speed = 55) {
@@ -281,7 +279,7 @@ function nextPage() {
                 const laguWish = document.getElementById("laguWish");
                 if (laguWish) {
                     laguWish.currentTime = 0;
-                    laguWish.play().catch(e => console.log("Wish audio butuh interaksi"));
+                    laguWish.play().catch(e => console.log("Wish audio needs interaction"));
                 }
             }, 1000);
         }
@@ -321,7 +319,7 @@ function pindahHalaman(nomor) {
     if (laguUmur) {
         if (nomor === 4 || nomor === 3 || nomor === 5) {
             if (laguUmur.paused) {
-                laguUmur.play().catch(e => console.log("Audio umur butuh interaksi"));
+                laguUmur.play().catch(e => console.log("Audio needs interaction"));
             }
         } else {
             laguUmur.pause();
@@ -333,7 +331,7 @@ function pindahHalaman(nomor) {
     const laguWish = document.getElementById("laguWish");
     if (nomor === 6) {
         laguWish.currentTime = 0;
-        laguWish.play().catch(e => console.log("Wish audio butuh interaksi"));
+        laguWish.play().catch(e => console.log("Wish audio needs interaction"));
     } else {
         laguWish.pause();
         laguWish.currentTime = 0;
@@ -394,7 +392,7 @@ function toggleSurat() {
     // 1. buka amplop
     if (!wrapper.classList.contains('open')) {
         wrapper.classList.add('open');
-        hint.innerText = "(Klik sekali lagi buat tarik suratnya)";
+        hint.innerText = "(Click again to pull the letter.)";
         return;
     }
 
@@ -435,7 +433,7 @@ function toggleSurat() {
         overlay.classList.remove('active');
         fakeLetter.style.zIndex = "";
         hint.style.opacity = "0.6";
-        hint.innerText = "(Klik amplopnya ya ✨)";
+        hint.innerText = "(Click on the envelope ✨)";
         suratSelesai = false;
 
         setTimeout(() => {
@@ -555,16 +553,86 @@ function startUmur() {
     }, 500);
 }
 
+let pesanTypingTimer;
+
 function lanjutPesan() {
     const text = `
-Delok o disek, 
-seberapa lama koe wes bertahan selama iki? koe wes tekan sak adoh iki udu gur perkoro kebetulan tok lho.
-kabeh kesel, kabeh luka, kabeh dino abotmu ke bener enek e. ojo sering ngeremehne awakmu dewe ming gur perkara saiki koe lagi kesel. 
-istirahat olehh, tapi lek soal nyerah mahh kui pilihan seng terlalu murah nggo kabeh seng wes kok lewati selama iki. alon-alon wae, urip udu soal lomba cepet-cepetan, tapi soal sopo seng tetep mampu berjalan meskipun kui berkali-kali tibo.
+Look at how far you’ve come.
+
+Do you realize how long you’ve managed to keep going? You’ve made it this far, and it wasn’t just by coincidence.
+
+All the exhaustion, all the pain, all those difficult days you’ve been through, they were real. So please, don’t underestimate yourself just because you’re tired right now.
+
+It’s okay to rest, but giving up would be too small of a choice for everything you’ve fought through until now.
+
+Take it slowly.
+
+Life isn’t a race about who gets there the fastest, but about who keeps walking even after falling down countless times. 🤍
 `;
 
-    document.getElementById("pesanMotivasi").innerText = text;
-    document.getElementById("pesanOverlay").classList.add("show");
+    const el = document.getElementById("pesanMotivasi");
+    const overlay = document.getElementById("pesanOverlay");
+
+    // Tampilkan overlay dulu
+    overlay.classList.add("show");
+
+    // Reset text
+    el.innerHTML = "";
+
+    // Pisahkan berdasarkan paragraf
+    const paragraphs = text.trim().split(/\n\s*\n/);
+
+    let paragraphIndex = 0;
+
+    function typeParagraph() {
+        if (paragraphIndex >= paragraphs.length) {
+            return;
+        }
+
+        const paragraph = paragraphs[paragraphIndex].trim();
+
+        const p = document.createElement("p");
+        el.appendChild(p);
+
+        let charIndex = 0;
+
+        function typeChar() {
+            if (charIndex < paragraph.length) {
+                p.textContent += paragraph.charAt(charIndex);
+                charIndex++;
+
+                const char = paragraph.charAt(charIndex - 1);
+
+                // Kecepatan mengetik
+                let delay = 38;
+
+                // Pause lebih lama pada punctuation
+                if (char === ",") delay = 180;
+                if (char === ".") delay = 450;
+                if (char === "!") delay = 500;
+                if (char === "?") delay = 500;
+
+                pesanTypingTimer = setTimeout(typeChar, delay);
+
+                // Auto-scroll mengikuti cerita
+                p.scrollIntoView({
+                    behavior: "smooth",
+                    block: "nearest"
+                });
+
+            } else {
+                paragraphIndex++;
+
+                // Pause antar paragraf
+                pesanTypingTimer = setTimeout(typeParagraph, 1000);
+            }
+        }
+
+        typeChar();
+    }
+
+    // Mulai storytelling
+    setTimeout(typeParagraph, 500);
 }
 
 function updateUmur() {
@@ -606,52 +674,52 @@ function updateUmur() {
 
     document.getElementById("umurResult").innerHTML = `
     <div class="hasil-box">
-        <h3>Usia Kamu</h3>
+        <h3>Your Age</h3>
         <div class="umur-utama">
-            ${years} Tahun ${months} Bulan ${days} Hari
+            ${years} years ${months} months ${days} days
         </div>
     </div>
 
     <div class="hasil-box">
-        <h3>Kamu Telah Hidup</h3>
+        <h3>You Have Lived</h3>
 
         <div class="row">
-            <span>Dalam Tahun</span>
+            <span>Years</span>
             <b>${totalYears}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Bulan</span>
+            <span>Month</span>
             <b>${totalMonths}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Minggu</span>
+            <span>Weeks</span>
             <b>${totalWeeks}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Hari</span>
+            <span>Days</span>
             <b>${totalDays}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Jam</span>
+            <span>Hours</span>
             <b>${totalHours}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Menit</span>
+            <span>Minutes</span>
             <b>${totalMinutes}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Detik</span>
+            <span>Seconds</span>
             <b>${totalSeconds}</b>
         </div>
 
         <div class="row">
-            <span>Dalam Milidetik</span>
+            <span>Miliseconds</span>
             <b>${totalMs}</b>
         </div>
     </div>
