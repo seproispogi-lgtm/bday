@@ -491,10 +491,12 @@ function changeLetterPage(arah) {
 const birthDate = new Date("2008-05-15T12:00:00");
 
 let intervalUmur;
+let ageCounterStart;
 
 function startAge() {
     if (intervalUmur) return;
 
+    ageCounterStart = Date.now();
     intervalUmur = setInterval(updateUmur, 52);
 
     const btn = document.getElementById("age-button");
@@ -539,20 +541,13 @@ function updateUmur() {
     const now = new Date();
     let start = new Date(birthDate);
 
-    let years = now.getFullYear() - start.getFullYear();
-    let months = now.getMonth() - start.getMonth();
-    let days = now.getDate() - start.getDate();
-
-    if (days < 0) {
-        months--;
-        const lastMonth = new Date(now.getFullYear(), now.getMonth(), 0);
-        days += lastMonth.getDate();
-    }
-
-    if (months < 0) {
-        years--;
-        months += 12;
-    }
+    const elapsedAgeDays = Math.floor((Date.now() - ageCounterStart) / (1000 * 60 * 60 * 24));
+    const years = 18 + Math.floor(elapsedAgeDays / 365);
+    const remainingAfterYears = elapsedAgeDays % 365;
+    const months = Math.floor(remainingAfterYears / 30);
+    const remainingAfterMonths = remainingAfterYears % 30;
+    const weeks = Math.floor(remainingAfterMonths / 7);
+    const days = remainingAfterMonths % 7;
 
     const diff = now - birthDate;
     const totalMs = diff;
@@ -576,7 +571,7 @@ function updateUmur() {
     <div class="hasil-box">
         <h3>Your Age</h3>
         <div class="umur-utama">
-            ${years} Tahun ${months} Bulan ${days} Hari
+            ${years} Years ${months} Months ${weeks} Weeks ${days} Days
         </div>
     </div>
 
