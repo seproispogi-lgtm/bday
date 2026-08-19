@@ -126,7 +126,7 @@ function checkPassword() {
         tutupKeyboard();
         selebrasi();
         document.getElementById("page-one").classList.remove("active");
-        document.getElementById("page-six").classList.add("active");
+        document.getElementById("page-two").classList.add("active");
         birthdaySong.play().catch(e => console.log("Audio butuh interaksi"));
         mulaiTyping();
         hujanKonfeti();
@@ -252,7 +252,7 @@ function goToNextPage() {
 
             setTimeout(() => {
                 document.getElementById("page-two").classList.remove("active");
-                document.getElementById("page-three").classList.add("active");
+                document.getElementById("page-six").classList.add("active");
 
                 const wishSong = document.getElementById("wish-song");
                 if (wishSong) {
@@ -422,10 +422,7 @@ function toggleLetter() {
             const btn = document.getElementById("continue-button");
             if (!btn.classList.contains("show-btn")) {
                 btn.innerText = "See One More Thing ✨";
-                btn.onclick = () => {
-                    finalCake = true;
-                    goToPage(6);
-                };
+                btn.onclick = () => goToPage(5);
                 btn.classList.add("show-btn");
             }
         }, 1000);
@@ -650,6 +647,7 @@ function sendAnswer(pilihan) {
     var pesan = "Hi! I just finished opening the website, and I chose this gift: " + pilihan;
     var url = "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent(pesan);
     window.open(url, '_blank');
+    finalCake = true;
     goToPage(6);
 }
 
