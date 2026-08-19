@@ -252,7 +252,7 @@ function goToNextPage() {
 
             setTimeout(() => {
                 document.getElementById("page-two").classList.remove("active");
-                document.getElementById("page-six").classList.add("active");
+                document.getElementById("page-three").classList.add("active");
 
                 const wishSong = document.getElementById("wish-song");
                 if (wishSong) {
