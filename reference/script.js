@@ -28,13 +28,11 @@ window.onload = function() {
     // 2. Loading asset
     const assets = [
         "kicaw.webm", "salah.webm",
-        "mp3/birthday.mp3", "mp3/salah.mp3", "mp3/wish.mp3",
-        "mp3/about.mp3", "mp3/nadhif.mp3", "mp3/nuca.mp3",
-        "mp3/fixyou.mp3", "mp3/blue.mp3", "mp3/hindia.mp3",
-        "mp3/lesungpipi.mp3", "mp3/neira.mp3",
-        "img/album1.jpg", "img/album2.jpg", "img/album3.jpg",
-        "img/album4.jpg", "img/album5.jpg", "img/album6.jpg",
-        "img/album7.jpg", "img/album8.jpg", "seal.png"
+        "birthday.mp3", "salah.mp3", "wish.mp3",
+        "about.mp3", "dist.mp3", "vood.mp3", "it.mp3",
+        "foto.mp3", "won.mp3", "maik.mp3", "hanap.mp3",
+        "Album1.jpg", "album2.jpg", "album3.jpg", "album4.jpg",
+        "album5.jpg", "album6.jpg", "album7.jpg", "album8.jpg", "seal.png"
     ];
 
     let loaded = 0;
@@ -46,7 +44,7 @@ window.onload = function() {
         loaded++;
         const persen = Math.round((loaded / total) * 100);
         if (fill) fill.style.width = persen + "%";
-        if (label) label.innerText = `Menyiapkan... ${persen}%`;
+        if (label) label.innerText = `Loading... ${persen}%`;
 
         // Teks detail file yang sedang di-load
         const detail = document.getElementById("loadingDetail");
@@ -65,7 +63,7 @@ window.onload = function() {
         if (selesaiLoading.sudah) return;
         selesaiLoading.sudah = true;
         const screen = document.getElementById("loadingScreen");
-        if (label) label.innerText = "Siap! ✨";
+        if (label) label.innerText = "Ready! ✨";
         const detail = document.getElementById("loadingDetail");
         if (detail) detail.innerText = "";
         setTimeout(() => {
@@ -169,7 +167,7 @@ function handleSandiSalah(v_utama, v_salah, suaraSalah) {
     let label = document.getElementById("label");
     let box = document.querySelector("#page1 #formBox");
 
-    label.innerText = "Sandi salah!";
+    label.innerText = "Incorrect password!";
     box.classList.add("shake");
 
     v_utama.style.opacity = "0";
@@ -208,7 +206,7 @@ function selebrasi() {
 document.getElementById("password").addEventListener("input", () => {
     document.getElementById("vids-utama").style.opacity = "1";
     document.getElementById("vids-salah").style.opacity = "0";
-    document.getElementById("label").innerText = "Masukin sandi dulu ya...";
+    document.getElementById("label").innerText = "Please enter the password...";
 
     let suaraSalah = document.getElementById("audioSalah");
     if (suaraSalah) {
@@ -257,14 +255,14 @@ function mulaiTyping() {
     } else {
         let btn = document.getElementById("nextBtn");
         btn.disabled = false;
-        btn.innerText = "Lanjut️🌻";
+        btn.innerText = "Continue️🌻";
     }
 }
 
 function nextPage() {
     let btn = document.getElementById("nextBtn");
     btn.disabled = true;
-    btn.innerText = "Tunggu ya...";
+    btn.innerText = "Please wait...";
 
     let vol = 1;
     let fadeOut = setInterval(() => {
@@ -443,7 +441,7 @@ function toggleSurat() {
         setTimeout(() => {
             const btn = document.getElementById("btnLanjut");
             if (!btn.classList.contains("show-btn")) {
-                btn.innerText = "Lihat Satu Hal Lagi ✨";
+                btn.innerText = "See One More Thing ✨";
                 btn.onclick = () => pindahHalaman(5);
                 btn.classList.add("show-btn");
             }
@@ -480,11 +478,11 @@ function munculkanTombolLembar() {
     }
 
     if (currentLembar === totalLembar) {
-        btnNext.innerText = "Tutup ✨";
+        btnNext.innerText = "Close ✨";
         btnNext.style.display = "block";
         btnNext.onclick = () => tutupSurat();
     } else {
-        btnNext.innerText = "Lanjut →";
+        btnNext.innerText = "Next →";
         btnNext.style.display = "block";
         btnNext.onclick = () => gantiLembar(1);
     }

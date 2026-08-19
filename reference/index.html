@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -14,13 +14,13 @@
         <p>Buka pesan ini di <b>Chrome</b> atau <b>Browser HP</b> ya, biar animasinya nggak berantakan.</p>
         
         <div class="step">
-            Klik titik tiga ( ⋮ ) di pojok kanan atas <br> 
-            lalu pilih "Buka di Browser / Chrome"
+            Click the three dots ( ⋮ ) in the top-right corner <br>
+            then choose "Open in Browser / Chrome"
         </div>
         
         <button onclick="document.getElementById('chrome-check').style.display='none'" 
                 style="margin-top: 30px; background: none; border: none; color: #ff4d6d; text-decoration: underline;">
-            Tetap di sini (Nggak direkomendasikan)
+            Stay here (Not recommended)
         </button>
     </div>
 </div>
@@ -28,7 +28,7 @@
 <div id="loadingScreen">
     <div class="loading-content">
         <div class="loading-cake">🎂</div>
-        <p>Menyiapkan sesuatu buat kamu...</p>
+        <p>Preparing something for you...</p>
         <p id="loadingDetail" style="font-size:0.75rem; opacity:0.7; margin-top:10px; min-height:1.2em;"></p>
        <div class="loading-bar"><div class="loading-fill"></div></div>
         
@@ -37,7 +37,7 @@
 
 <div class="container">
     
-    <!-- HALAMAN PERTAMA -->
+    <!-- FIRST PAGE -->
     
     <div id="page1" class="page active">
         <div id="formBox">
@@ -50,35 +50,35 @@
             </video>
 
             <h1>Hi, It's for you!</h1>
-            <p id="label">Masukin sandi dulu ya...</p>
-            <input type="password" id="password" placeholder="Ketik di sini...">
-            <p class="clue">Clue: Nama teman sekelasmu yang ikut PMR</p>
-            <button onclick="cek()">Masuk ✨</button>
+            <p id="label">Please enter the password...</p>
+            <input type="password" id="password" placeholder="Type here...">
+            <p class="clue">Clue: your birthday</p>
+            <button onclick="cek()">Enter ✨</button>
         </div>
-        <button onclick="pindahHalaman(6)">Lanjut Lagi</button>
+        <button onclick="pindahHalaman(6)">Continue</button>
     </div>
 
-    <!-- HALAMAN KEDUA-->
+    <!-- SECOND PAGE -->
 
     <div id="page2" class="page">
         <h1 style="font-size: 1.8rem; line-height: 1.4;">
             Happy 18th <br> 
             <span style="color: #ff4d6d; text-shadow: 2px 2px 10px rgba(255, 77, 109, 0.3);">
-                ✨️Birthday, Cezillia!✨️
+                ✨️Happy Birthday, Shantal!✨️
             </span>
         </h1>
 
         <div class="text-box" id="scrollBox">
             <p id="text"></p>
         </div>
-        <button id="nextBtn" onclick="nextPage()" disabled>Tunggu sebentar...</button>
+        <button id="nextBtn" onclick="nextPage()" disabled>Please wait...</button>
     </div>
 
 <div id="page3" class="page">
     <div id="overlay" class="dark-overlay" onclick="toggleSurat()"></div>
 
-    <h1 id="judulSurat">Ada pesan buat kamu...</h1>
-    <p id="hintKlik">(Klik amplopnya ya ✨)</p>
+    <h1 id="judulSurat">A message for you...</h1>
+    <p id="hintKlik">(Click the envelope ✨)</p>
     
     <div class="envelope-wrapper" id="amplopWrapper" onclick="toggleSurat()">
         <div class="envelope">
@@ -138,14 +138,14 @@
     </div>
 
     <div class="letter-nav" id="letterNav">
-        <button id="btnPrev" onclick="gantiLembar(-1)" style="display:none;">← Kembali</button>
+        <button id="btnPrev" onclick="gantiLembar(-1)" style="display:none;">← Back</button>
         <span id="pageIndicator">1 / 3</span>
-        <button id="btnNextLetter" onclick="gantiLembar(1)" disabled>Lanjut →</button>
+        <button id="btnNextLetter" onclick="gantiLembar(1)" disabled>Next →</button>
     </div>
 </div>
 
     <div style="width: 100%; display: flex; justify-content: center;">
-    <button id="btnLanjut" class="hidden-btn" onclick="pindahHalaman(5)">Lanjut ✨</button>
+    <button id="btnLanjut" class="hidden-btn" onclick="pindahHalaman(5)">Continue ✨</button>
 </div>
 </div>
 
@@ -153,31 +153,31 @@
     <div id="formBox">
 
         <div id="umurHeader">
-            <h1 style= "font-size: 2.5rem;">Lihat usiaku sekarang
+            <h1 style= "font-size: 2.5rem;">See my age now
             </h1>
         </div>
 
         <div id="umurResult" class="umur-hidden" style="margin-top:20px; line-height:1.8; font-size:1.1rem;">
-            Tekan tombol dulu.
+            Press the button first.
         </div>
 
         <button id="btnUmur" onclick="startUmur()" style="margin-top: 25px;">
-            Lihat Umur ✨
+            See Age ✨
         </button>
 
         <button id="btnNext" class="hidden-btn" onclick="lanjutPesan()">
-            Lanjut ✨
+            Continue ✨
         </button>
     </div>
 </div>
 
 
     <div id="page5" class="page">
-        <h2>Pilih hadiah kamu hari ini!</h2>
+        <h2>Choose your gift today!</h2>
         <div class="pilihan-box">
-            <button onclick="kirimJawaban('Seblak Komplit')">Pesen Seblak 🍜</button>
-            <button onclick="kirimJawaban('Peluk Online')">Peluk Online 🤗</button>
-            <button onclick="kirimJawaban('Jalan-jalan')">Diajak Jalan-jalan 🚗</button>
+            <button onclick="kirimJawaban('Complete seblak')">Order Seblak 🍜</button>
+            <button onclick="kirimJawaban('Online hug')">Online Hug 🤗</button>
+            <button onclick="kirimJawaban('A day out')">A Day Out 🚗</button>
         </div>
     </div>
     
@@ -185,7 +185,7 @@
 <div id="page6" class="page">
     <h1 style="margin-bottom: 4px;">Make a Wish</h1>
     <p style="font-size: 1.0rem; color: rgba(255,255,255,0.8); margin-top: 0;">
-        Buat impian dan tap semua lilinnyaa
+        Make a wish and tap all the candles
     </p>
 
     <div class="kue-wrapper">
@@ -235,13 +235,13 @@
     <div id="wishMsg">
     <div class="wish-box">
 
-        <p>🎂 Semoga semua harap dan semua doa-doa kamu dapat terkabul</p>
-        <p>~Aamiin~</p>
+        <p>🎂 May all your hopes and prayers come true.</p>
+        <p>~Amen~</p>
         <button 
             id="btnWishLanjut"
             class="show-btn"
             onclick="lanjutKePlaylist()">
-            Lanjut ✨
+            Continue ✨
         </button>
         </div>
     </div>
@@ -249,7 +249,7 @@
 
 <div id="page7" class="page">
     <h1 style="margin-bottom:10px;">
-    Pilih Lagu Dulu 🎧
+    Choose a Song 🎧
 </h1>
 
     <p style="
@@ -258,8 +258,8 @@
     margin-bottom:25px;
     line-height:1.6;
 ">
-    pilih lagu yang mau nemenin kamu<br>
-    buat buka surat setelah ini.
+    choose a song to keep you company<br>
+    while you open the letter next.
 </p>
 
     <div class="album-slider">
@@ -279,72 +279,72 @@
                     </div>
                 </div>
 
-                <div class="album-slide" data-audio="nadhif.mp3" data-start="85.5">
+                <div class="album-slide" data-audio="dist.mp3" data-start="85.5">
                     <div class="album-card">
                         <img src="album2.jpg" class="album-cover">
                         <div class="album-info">
-                            <h3>Kota ini tak sama tanpamu</h3>
-                            <p>Nadhif Basalamah</p>
+                            <h3>Distant Lover</h3>
+                            <p>Marvin Gaye</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="album-slide" data-audio="nuca.mp3" data-start=118.3> 
+                <div class="album-slide" data-audio="vood.mp3" data-start=118.3>
                     <div class="album-card">
                         <img src="album3.jpg" class="album-cover">
                         <div class="album-info">
-                            <h3>Masa ini, Nanti, dan Masa Indah Lainnya</h3>
-                            <p>Nuca</p>
+                            <h3>End</h3>
+                            <p>Frank Ocean</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="album-slide" data-audio="fixyou.mp3" data-start="68">
+                <div class="album-slide" data-audio="it.mp3" data-start="68">
                     <div class="album-card">
                         <img src="album4.jpg" class="album-cover">
                         <div class="album-info">
-                            <h3>Fix You</h3>
-                            <p>Coldplay</p>
+                            <h3>It Might Be You</h3>
+                            <p>Steven Bishop</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="album-slide" data-audio="blue.mp3" data-start="0">
+                <div class="album-slide" data-audio="foto.mp3" data-start="0">
                     <div class="album-card">
                         <img src="album5.jpg" class="album-cover">
                         <div class="album-info">
-                            <h3>Blue</h3>
-                            <p>Yung Kai</p>
+                            <h3>Foto Kita Blur</h3>
+                            <p>Sal Priadi</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="album-slide" data-audio="hindia.mp3" data-start="0">
+                <div class="album-slide" data-audio="won.mp3" data-start="0">
                     <div class="album-card">
                         <img src="album6.jpg" class="album-cover">
                         <div class="album-info">
-                            <h3>Rumah ke Rumah</h3>
-                            <p>Hindia</p>
+                            <h3>I Won't Last a Day Without You</h3>
+                            <p>Carpenters</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="album-slide" data-audio="lesungpipi.mp3" data-start="51.5">
+                <div class="album-slide" data-audio="maik.mp3" data-start="51.5">
                     <div class="album-card">
                         <img src="album7.jpg" class="album-cover">
                         <div class="album-info">
-                            <h3>Lesung Pipi</h3>
-                            <p>Raim Laode</p>
+                            <h3>Maikee's Letters(fav)</h3>
+                            <p>Just Hush</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="album-slide" data-audio="neira.mp3" data-start="170.5">
+                <div class="album-slide" data-audio="hanap.mp3" data-start="170.5">
                     <div class="album-card">
                         <img src="album8.jpg" class="album-cover">
                         <div class="album-info">
-                            <h3>Sampai Jadi Debu</h3>
-                            <p>Banda Neira</p>
+                            <h3>Hinahanap-Hanap Kita</h3>
+                            <p>Rivermaya</p>
                         </div>
                     </div>
                 </div>
@@ -357,7 +357,7 @@
     </div>
 
     <button onclick="pindahHalaman(4)" style="margin-top:25px;">
-        Lanjut ✨
+        Continue ✨
     </button>
 </div>
 
@@ -368,8 +368,8 @@
         <p id="pesanMotivasi"></p>
 
         <div class="pesan-actions">
-            <button onclick="kembaliUmur()">Kembali</button>
-            <button onclick="nextDariPesan()">Lanjut</button>
+            <button onclick="kembaliUmur()">Back</button>
+            <button onclick="nextDariPesan()">Continue</button>
         </div>
     </div>
 </div>
